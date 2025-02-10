@@ -1,0 +1,401 @@
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 50px;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+
+    .logo h1 {
+        font-size: 23px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+
+    .logo p {
+        font-size: 16px;
+        color: gray;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        position: relative;
+        padding-bottom: 5px;
+    }
+
+    /* Underline Effect */
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: black;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .nav-links {
+            margin-top: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <h1>HASTKAL CREATIONS</h1>
+        <p>store of nature</p>
+    </div>
+    <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="cart/">Card</a>
+
+        <a href="about">About</a>
+        <a href="contactnav">Contact</a>
+
+        
+        {% comment %} <a href="#">Customer</a> {% endcomment %}
+
+
+        
+    </div>
+</nav>
+
+</body>
+{% comment %} -------------------------------------------------------------------- {% endcomment %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #000;
+    }
+    .container {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+    }
+    h1 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .highlight {
+        color: #b68d4c;
+    }
+    .about-text {
+        max-width: 800px;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    .about-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+    .about-section img {
+        width: 45%;
+        border-radius: 5px;
+    }
+    .text-box {
+        width: 45%;
+        text-align: left;
+    }
+    .quote {
+        font-size: 28px;
+        font-weight: bold;
+        color: #000;
+    }
+    .quote .highlight {
+        font-weight: bold;
+    }
+    .btn-container {
+        margin-top: 60px;
+        display: grid;
+        justify-content: center;
+        gap: 15px;
+    }
+    .btn {
+        padding: 20px 60px;
+        font-size: 16px;
+        background-color:rgba(0, 0, 0, 0.87);
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color:rgb(255, 255, 255);
+        color: #000;
+    }
+</style>
+
+<div class="container">
+    <div class="about-section">
+        <img src="{% static 'images/namaskar.png' %}" alt="Handcrafted Woodwork">
+        <div class="text-box">
+            <h2 style="font-size: 50px;"><span class="highlight">Namaskaram!</span></h2>
+            <p>Rooted in the cultural mosaic of madhya-pradesh, our founders, with a heritage in exporting handicrafts, envisioned our brand as a celebration of India's artistry.</p>
+            
+            <!-- Buttons added directly after the paragraph -->
+            <div class="btn-container">
+                <a href="home" class="btn">Go To Home Page</a>
+                <a href="singup" class="btn">Sign Up</a>
+                <a href="login" class="btn">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% comment %} =================================footer======================= {% endcomment %}
+
+
+<footer class="footer">
+    <style>
+  
+      .footer {
+        padding-top: 10px;
+        background-color:rgb(130, 130, 129); /* Matching color */
+        color: #fff;
+        padding: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+      }
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 10px;
+      }
+      .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-section ul li {
+        margin: 5px 0;
+      }
+      .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .footer-section ul li a:hover {
+        text-decoration: underline;
+      }
+      .footer-section .social-media img {
+        width: 24px;
+        margin: 5px;
+      }
+      .newsletter input[type="email"] {
+        padding: 10px;
+        width: calc(100% - 90px);
+        margin-right: 10px;
+      }
+      .newsletter button {
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .newsletter button:hover {
+        background-color: #555;
+      }
+      .copyright {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+  
+      .social-icons {
+        text-align: left;
+        padding: 20px;
+    }
+    
+    .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 24px;
+        color: #333;
+        transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+        color: #007bff; /* Change color on hover */
+    }
+    
+      
+    </style>
+  
+  
+    <footer>
+        <div class="social-icons">
+           
+            
+        </div>
+    </footer>
+    
+    <div class="footer-section">
+        <h3>Online Shop</h3>
+        <ul>
+          <li><a href="add1">walls decor</a></li>
+          <li><a href="add1">rooms frams</a></li>
+          <li><a href="add2">wall frameset</a></li>
+          <li><a href="add2">Ready Made Curtains</a></li>
+          <li><a href="add1">Cushions</a></li>
+          <li><a href="add2">Gifting</a></li>
+          <li><a href="4">Home Decor Accessories</a></li>
+          <li><a href="4">paint product</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Discover</h3>
+        <ul>
+          <li><a href="#">Curtains</a></li>
+          <li><a href="#">Upholstery</a></li>
+          <li><a href="#">Bed & Bath</a></li>
+          <li><a href="#">Blinds</a></li>
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>New Introductions</h3>
+        <ul>
+          <li><a href="#">Viroguard by D'Decor</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Corporate</h3>
+        <ul>
+          <li><a href="about">About Us</a></li>
+      
+          {% comment %} <li><a href="#">Store Locator</a></li> {% endcomment %}
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Follow us on instagram</a></li>
+          {% comment %} <li><a href="#">Careers</a></li> {% endcomment %}
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Exchange Policy</a></li>
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="#">Track My Order</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Get in Touch</h3>
+        <ul>
+          <li><a href="#">Live Chat</a></li>
+          <li><a href="#">WhatsApp Chat</a></li>
+          <li><a href="#">Leave Us Feedback</a></li>
+          <li><a href="#">Request an Appointment</a></li>
+        </ul>
+        <p>Call Us: <a href="8770128264">877012826</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="social-media">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
+                </div>
+  
+  
+          <div class="social-icons">
+          <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"> <i class="fab fa-instagram"></i></a>instagram
+          </div>
+  
+  
+          <div class="social-icons">
+            <a hreef="https://www.linkedin.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>LinkedIn
+            </div>
+          
+            
+  
+          <div class="social-icons">
+            <a hreef="https://www.whatsapp.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>whats
+            </div>
+         
+          
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Subscribe to Our Latest Emails</h3>
+        <form action="#" method="post">
+          <input type="email" placeholder="Enter your email address">
+          <button type="submit">Join</button>
+        </form>
+    </div>
+  
+</footer>
+  <footer style="background-color: white;">
+  <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
+  <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+  </footer>
+
+

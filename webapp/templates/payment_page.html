@@ -1,0 +1,374 @@
+<style>
+    /* Navbar Container */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        background-color: white;
+        border-bottom: 1px solid #ddd;
+    }
+  
+    .navbar h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color:darkslategrey;
+        padding-left: 43%;
+        
+    }
+  
+    .navbar h1 span {
+        font-size: 14px;
+        padding-left: 12px;
+        font-weight: normal;
+        display: block;
+        color:#000;
+    }
+    
+</style>
+<body>
+  <!-- Top Banner -->
+  
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo and Heading -->
+    <h1>
+        Hastkala
+        <span>Homes Made Beautiful</span>
+        
+    </h1> 
+    <div style="padding-right: 60px; font-size: 40px; color: #000;">
+      <a href="/home" style="color: #000;">⌂</a>
+     </div>
+    </div>
+  </div>
+</body>
+
+
+
+    <style>
+        /* Reset some default styles */
+        body, html,.paymentbackground {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1em;
+        }
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #000;
+            text-align: right;
+        }
+        .payment-options {
+            margin: 20px 0;
+        }
+        .payment-options label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        .btn {
+            display: block;
+            width: 95%;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        /* Product list item styling */
+        .product-list {
+            margin-bottom: 20px;
+        }
+        .product-list .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .product img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+        }
+        .product-details {
+            flex: 1;
+            margin-left: 10px;
+        }
+        .product-details span {
+            display: block;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #000;
+        }
+        .itemimage{
+          width: 80px;
+          height: 80px;
+        }
+    </style>
+    <h1>buynow</h1>
+<body class="paymentbackground">
+    <div class="container">
+        <h1>Payment Summary</h1>
+
+        <!-- Product List -->
+        <div class="product-list">
+            {% for item in cart %}
+            <div class="product">
+                {% comment %} <img src="{{ product.image}}" alt="{{ product.name }}"> {% endcomment %}
+                <img src="{{ item.image}}" class="itemimage">
+                <h1 class="productname">{{ product.name }}</h1>
+
+                <div class="product-details">
+                    <span>{{ item.name }}</span>
+                    <span>Quantity: {{ item.quantity }}</span>
+                    <span style="text-align: right; padding-right: 10px;">₹{{ item.total_price }}</span>
+                    
+                </div>
+                {% comment %} <span class="product-price">₹{{ item.price * item.quantity }}</span> {% endcomment %}
+            </div>
+            {% endfor %}
+        </div>
+        {% csrf_token %}
+        <!-- Summary -->
+        
+        <div class="summary-item">
+            <span>product price </span>
+            <span>₹{{ total_price }}</span>
+        </div>
+        <div class="summary-item">
+            <span>GST (18%)</span>
+            <span>₹{{ gst }}</span>
+        </div>
+        <div class="summary-item">
+            <span>shiping charge (3%)</span>
+            <span>₹{{ shipping_charge }}</span>
+        </div>
+        <div class="summary-item">
+          <span>discount</span>
+          <span>₹{{  discount }}</span>
+      </div>
+        <div class="summary-item total">
+            <span>Grand Total</span>
+            <span>₹{{ grand_total }}</span>
+        </div>
+
+        <!-- Payment Options -->
+        {% comment %} <a href="{% url 'generate_qr' product.id %}" class="btn btn-primary">pay {{ total_price }}</a> {% endcomment %}
+        
+                {% comment %} <button type="submit" class="btn">Pay ₹{{ grand_total }}</button> {% endcomment %}
+                
+                {% comment %} <a href="{% url 'merchant_payment' %}" class="btn btn-primary">Pay {{ grand_total }}</a> {% endcomment %}
+              {% comment %} <a href="{% url 'contact_form' %}" class="btn btn-primary"> Pay {{ grand_total }}</a> {% endcomment %}
+
+              <a href="{% url 'generate_qr_code_card' %}" class="btn btn-primary">pay</a>
+              </form>
+        </div>
+    </div>
+</body>
+
+
+
+
+{% comment %} --------------------------------------------------------- {% endcomment %}
+<footer class="footer">
+    <style>
+
+      .footer {
+        padding-top: 10px;
+        background-color: #b1a084; /* Matching color */
+        color: #fff;
+        padding: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+      }
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 10px;
+      }
+      .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-section ul li {
+        margin: 5px 0;
+      }
+      .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .footer-section ul li a:hover {
+        text-decoration: underline;
+      }
+      .footer-section .social-media img {
+        width: 24px;
+        margin: 5px;
+      }
+      .newsletter input[type="email"] {
+        padding: 10px;
+        width: calc(100% - 90px);
+        margin-right: 10px;
+      }
+      .newsletter button {
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .newsletter button:hover {
+        background-color: #555;
+      }
+      .copyright {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      
+    </style>
+    <div class="footer-section">
+        <h3>Online Shop</h3>
+        <ul>
+          <li><a href="#">walls decor</a></li>
+          <li><a href="#">rooms frams</a></li>
+          <li><a href="#">wall frameset</a></li>
+          <li><a href="#">Ready Made Curtains</a></li>
+          <li><a href="#">Cushions</a></li>
+          <li><a href="#">Gifting</a></li>
+          <li><a href="#">Home Decor Accessories</a></li>
+          <li><a href="#">paint product</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Discover</h3>
+        <ul>
+          <li><a href="#">Curtains</a></li>
+          <li><a href="#">Upholstery</a></li>
+          <li><a href="#">Bed & Bath</a></li>
+          <li><a href="#">Blinds</a></li>
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>New Introductions</h3>
+        <ul>
+          <li><a href="#">Viroguard by D'Decor</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Corporate</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+      
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Legal Policy</a></li>
+          <li><a href="#">Careers</a></li>
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Exchange Policy</a></li>
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="#">Track My Order</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+      
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Get in Touch</h3>
+        <ul>
+          <li><a href="#">Live Chat</a></li>
+          <li><a href="#">WhatsApp Chat</a></li>
+          <li><a href="#">Leave Us Feedback</a></li>
+          <li><a href="#">Request an Appointment</a></li>
+        </ul>
+        <p>Call Us: <a href="8770128264">877012826</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="social-media">
+          <li><a href="https://www.facebook.com"><img src="facebook-icon.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+          <li><a href="#"><img src="pinterest-icon.png" alt="Pinterest"></a></li>
+          <li><a href="#"><img src="youtube-icon.png" alt="YouTube"></a></li>
+          <li><a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Subscribe to Our Latest Emails</h3>
+        <form action="#" method="post">
+          <input type="email" placeholder="Enter your email address">
+          <button type="submit">Join</button>
+        </form>
+    </div>
+
+
+
+
+  
+</footer>
+<footer style="background-color: white;">
+  <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
+  <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+</footer>
+
+</html>
+
+
+
+
+{% for item in cart %}
+<div>
+    <p>Product ID: {{ item.product_id }}</p>
+    <p>Name: {{ item.name }}</p>
+   
+    <p>Quantity: {{ item.quantity }}</p>
+    <p>Total Price: {{ item.total_price }}</p>
+</div>
+{% endfor %}

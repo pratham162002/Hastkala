@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .qr-section {
+            margin: 20px 0;
+        }
+        .copy-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        .info-section {
+            margin: 20px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Your Payment</h1>
+        <p><strong>Your UPI ID:</strong> <span id="merchant-upi" style="color:rgb(82, 82, 82);">sahuprathamucobank@313</span></p>
+        <button class="copy-btn" onclick="copyUPI()">Copy UPI ID</button>
+        <div class="qr-section">
+            <p>amount : {{ total_price }}</p>
+            <img src="/static/images/scanner.png" alt="Scan Merchant UPI QR Code" width="200" />
+        </div>
+        <div class="info-section">
+            <h3>Payment Instructions:</h3>
+            <ul>
+                <li>Ensure you send the exact total amount displayed on the cart page.</li>
+                <li>Save the transaction ID once payment is completed.</li>
+                <li>Contact our support team if you experience any issues during the payment process.</li>
+                <li>payments are non-refundable once processed.</li>
+            </ul>
+        </div>
+        <p><strong>Post-payment:</strong> Share your transaction ID and order details on WhatsApp (+91-8770128264) or email (support@hastkala.com).</p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="reference_id">Enter Payment Reference ID:</label>
+        <input type="text" id="reference_id" name="reference_id" required>
+        
+        <label for="screenshot">Upload Screenshot (Optional):</label>
+        <input type="file" id="screenshot" name="screenshot">
+        
+        <button type="submit">Submit Payment Details</button>
+    </form>
+    
+    <script>
+        function copyUPI() {
+            const upiId = document.getElementById("merchant-upi").innerText;
+            navigator.clipboard.writeText(upiId).then(() => {
+                alert("UPI ID copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+<img src="{{ qr_code_image.url }}" alt="Scan to Pay">
+<p>Scan the QR code to pay ₹{{ amount }}</p>
+
+
+
+
+<h1>Payment Status</h1>
+<p>Order ID: {{ order.id }}</p>
+<p>Amount: ₹{{ order.amount }}</p>
+<p>Status: {{ order.payment_status }}</p>

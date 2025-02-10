@@ -1,0 +1,724 @@
+{% extends "w.html" %}
+{% block content %}
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopping Cart Sidebar2</title>
+        <link rel="stylesheet" href="{% static 'add1.css' %}">
+    </head>
+
+    {% comment %} ------------------------first------------------------------------------ {% endcomment %}
+
+    <style>
+
+      .btn{
+        background-color:white;
+        color: black;
+        border: 0;
+        padding: 10px 70px;
+        cursor: pointer;
+        transition: background-color 0.7s ease;
+        font-size: 14px;
+        border-radius: 10px;
+        }
+
+
+        body {
+          margin: 0;
+          padding: 0;
+          height: 10%;
+          
+
+      }
+      
+      .background-container {
+          position: relative;
+          width: 100%;
+          height: 650px;
+          overflow: hidden;
+          padding-bottom: 20px;
+      }
+      
+      .background-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          object-fit: cover; /* Ensures the background image covers the container */
+          z-index: 1; /* Lower z-index for background */
+         
+      }
+      
+      .overlay-image {
+          position: absolute;
+          top: 50%; /* Adjust the position of the overlay image */
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 400px; /* Set the size of the overlay image */
+          z-index: 2; /* Higher z-index to appear above the background */
+          width: 400px;
+          height: 400px;
+          border-radius: 50%;
+          background-size: cover;
+          background-position: center;
+          margin: 0 auto 10px;
+      
+        }
+        .pp{
+          width: 85%;
+          margin-top: 1%;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          text-align: center;
+          padding-left: 300px;
+          padding-top: -180px;
+          
+        }
+
+        
+      
+      </style>
+      <body>
+      <div class="background-container">
+          <!-- Background Image -->
+          <img src="{% static 'images/banner.webp' %}" alt="Background" class="background-image"  >
+          
+          <!-- Overlay Image -->
+          <img src="{% static 'images/logop.png' %}" alt="Overlay" class="overlay-image">
+          
+  </div>
+      
+     
+
+      <section class="pp" >
+       
+            <div class="p" >
+              <p style="align-items: baseline;">Experience the art of thoughtful gifting at PHL. Whether for a special occasion or a spontaneous gesture, our curated collection of elegant gift wraps and custom-designed boxes make every gift extraordinary. Elevate your gift-giving with us, and let every present be a memorable</p>
+            </div>
+        </body>
+      </section>
+
+{% comment %} ------------------------------------------products----------------------------------------------- {% endcomment %}
+<body>
+
+  <style>
+    /* General Reset */
+  
+
+    /* Product Grid */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content:space-evenly;
+      max-width: 1500px;
+      margin: 20px auto;
+      cursor: pointer;
+
+    }
+
+    /* Product Card */
+    .custom-card {
+      width: 280px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .custom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0);
+    }
+
+    /* Image Section */
+    .custom-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-card:hover .custom-image img {
+      transform: scale(2.0);
+    }
+
+    /* Overlay Section */
+    .custom-overlay {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .custom-card:hover .custom-overlay {
+      opacity: 1;
+    }
+
+    .custom-overlay .custom-btn {
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 30px;
+      margin: 5px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .custom-overlay .custom-btn:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .custom-overlay .custom-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .custom-overlay .custom-icons i {
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-overlay .custom-icons i:hover {
+      transform: scale(1.2);
+      color: #007bff;
+    }
+
+    /* Product Info Section */
+    .custom-info {
+      padding: 15px;
+      text-align: center;
+      background:#fdfdfd;
+    }
+
+    .custom-info h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .custom-info p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .custom-info .custom-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .check10{
+      background-color:white;
+      color: #000;
+      border: 0;
+      border-radius: 100px;
+      padding: 7px 20px;
+      padding-bottom: 10px;
+      column-gap: 1px;
+      
+      
+      transition: background-color 0.7s ease;
+
+    }
+  </style>
+  
+
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          {% comment %} <button class="custom-btn">Add to Cart</button> {% endcomment %}
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button>  
+          
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+         
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 1</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹3,999.00</span>
+        
+      </div>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 2</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹2,599.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 3</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹3,699.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+
+
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+<body>
+
+  <style>
+    /* General Reset */
+  
+
+    /* Product Grid */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content:space-evenly;
+      max-width: 1500px;
+      margin: 20px auto;
+      cursor: pointer;
+
+    }
+
+    /* Product Card */
+    .custom-card {
+      width: 280px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .custom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0);
+    }
+
+    /* Image Section */
+    .custom-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-card:hover .custom-image img {
+      transform: scale(2.0);
+    }
+
+    /* Overlay Section */
+    .custom-overlay {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .custom-card:hover .custom-overlay {
+      opacity: 1;
+    }
+
+    .custom-overlay .custom-btn {
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 30px;
+      margin: 5px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .custom-overlay .custom-btn:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .custom-overlay .custom-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .custom-overlay .custom-icons i {
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-overlay .custom-icons i:hover {
+      transform: scale(1.2);
+      color: #007bff;
+    }
+
+    /* Product Info Section */
+    .custom-info {
+      padding: 15px;
+      text-align: center;
+      background:#fdfdfd;
+    }
+
+    .custom-info h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .custom-info p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .custom-info .custom-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .check10{
+      background-color:white;
+      color: #000;
+      border: 0;
+      border-radius: 100px;
+      padding: 7px 20px;
+      padding-bottom: 10px;
+      column-gap: 1px;
+      
+      
+      transition: background-color 0.7s ease;
+
+    }
+  </style>
+  
+
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          {% comment %} <button class="custom-btn">Add to Cart</button> {% endcomment %}
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button>  
+          
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+         
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 1</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹3,999.00</span>
+        
+      </div>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 2</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹2,599.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 3</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹3,699.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+
+
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% comment %} --------------------------------------------imgyext-------------------------------------------------- {% endcomment %}
+<body class="img">
+    <style>
+      .phototext{
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          background-color: #f4f4f4;
+      }
+      .phototext-container{
+          position: relative;
+          width: 400;
+          height: 500px;
+           
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          overflow: hidden;
+      }
+      .phototext-containerimg {
+          width: 80%;
+          display: block;
+      }
+      .overlay-text {
+          position: absolute;
+          top: 35%;
+          left: 26%;
+          transform: translate(-50%, -50%);
+
+          color:white;
+          font-size: 70px;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0); /* Background for readability */
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-align: center;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      .overlay-text2 {
+        position: absolute;
+        top: 45%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0); /* Background for readability */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+      .overlay-button {
+          position: absolute;
+          
+          top: 350px;
+          left: 25%;
+          transform: translate(-50%, 0);
+          background-color:rgba(30, 30, 34, 0);
+          color: white;
+          border: none;
+          padding: 10px 30px;
+          font-size: 16px;
+          border-radius: 100px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+      .overlay-button:hover {
+          background-color:rgb(139, 79, 70);
+          color: whitesmoke;
+      }
+
+    
+    </style>
+    </head>
+    <body class="phototext">
+    <div class="phototext-container">
+      <img src="{% static 'images/full.jpg' %}" alt="Decor">
+    
+   
+      <div class="overlay-text">Corporate Gift's</div>
+      <div class="overlay-text2">make your corporate happy </div>
+      {% comment %} <button class="overlay-button" link  href="/4">Checkout</button> {% endcomment %}
+      <button><a href="/4" class="overlay-button">checkout</a></button>
+    </div>
+  </body>
+</body>
+{% comment %} ------------------------------------------------------------------------------- {% endcomment %}
+
+  
+      
+
+
+{% endblock content %}
+</html>
+
+

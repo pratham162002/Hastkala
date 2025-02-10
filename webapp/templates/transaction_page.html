@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .overlay-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+        }
+        .overlay-content h2 {
+            color: green;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="transactionForm" method="POST">
+    {% csrf_token %}
+    <label>Enter your transaction ID</label>
+    <input type="text" name="transaction_id" required>
+
+    <label>Enter your name</label>
+    <input type="text" name="name" required>
+
+    <label>Phone</label>
+    <input type="text" name="phone" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Overlay Popup -->
+<div class="overlay" id="overlay">
+    <div class="overlay-content">
+        <h2>Thank You for Your Purchase!</h2>
+        <p>Your payment will be manually verified by our team.</p>
+        <p>An invoice will be available for download soon.</p>
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("transactionForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form from submitting immediately
+
+        // Submit form via AJAX
+        let formData = new FormData(this);
+
+        fetch("{% url 'save_transaction' %}", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())  // Expecting JSON response
+        .then(data => {
+            if (data.success) {
+                document.getElementById("overlay").style.display = "flex";
+            }
+        });
+    });
+
+    function closeOverlay() {
+        document.getElementById("overlay").style.display = "none";
+        window.location.href = "{% url 'home' %}";  // Redirect to home page
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1678 @@
+
+<!DOCTYPE html>
+
+{% load static %}
+
+
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'w.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        <title >{% block title %}{% endblock title %}Home Decor Store </title>
+    </head>
+    
+
+{% comment %} -----------------------------------------nAV BAR---------------- {% endcomment %}
+{% comment %} 
+    <style>
+        
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color:#555;
+            padding-left: 200px;
+        }
+
+        .navbar h1 span {
+            font-size: 14px;
+            padding-left: 12px;
+            font-weight: normal;
+            display: block;
+            color:#000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: background-color 0.7s ease;
+            
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 10px;
+            position: relative;
+            transition: background-color 0.7s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d9534f;
+            transition: background-color 0.7s ease;
+            
+           
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 35px;
+            z-index: 1000;
+            min-width: 250px;
+            border: 1px solid #ddd;
+            transition: background-color 0.7s ease;
+
+        }
+
+        .dropdown-menu h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .dropdown-menu a:hover {
+            color: #007bff;
+            
+        }
+
+        /* Sale Link Styling */
+        .nav-links a.sale {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .navimg{
+         width: 90px;
+         padding-top: 10px;
+        }
+        ..dropdown-menu img{
+          size: 40px;
+          border-radius: 100px;
+        }
+    </style>
+<body> {% endcomment %}
+    <!-- Top Banner -->
+    {% comment %} <div class="top-banner"> {% endcomment %}
+        {% comment %} Ma
+         {% endcomment %}
+{% comment %} 
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- Logo and Heading -->
+         <h1>
+            Hastkala
+            <span>Homes Made Beautiful</span>
+        </h1> 
+
+          {% comment %} <div class="navimg">
+            <img src="{% static 'images/logo2.svg' %}" >
+          </div> {% endcomment %}
+
+        <!-- Navigation Links -->
+        {% comment %} <div class="nav-links"> {% endcomment %}
+            {% comment %} <a href="">Home Decor</a> {% endcomment %}
+            {% comment %} <div class="dropdown">
+                <a href="#">product & More</a>
+                <div class="dropdown-menu">
+                    <h4>our product's</h4>
+                    <a href="/add2">pooja Tray</a>
+                    <a href="/add2">decor Mirror</a>
+                    <a href="/add2">necklesh</a>
+                    <a href="/add2">aralicks wall designs</a>
+                    {% comment %} <img src="{% static "images/clock.png" %}" class="img" style="width: 90%; height: 90%; padding-left: 60px;"> {% endcomment %}
+                </div>
+            {% comment %} </div>  {% endcomment %}
+
+
+
+            {% comment %} <div class="dropdown">
+            <a href="#">Walls Decorating</a>
+                  <div class="dropdown-menu">
+                    <h4>wall items</h4>
+                    <a href="/add2">frames</a>
+                    <a href="/add2">decor Mirror</a>
+                    <a href="/add2">wall keys stant</a>
+                    
+                </div>
+            </div>  {% endcomment %}
+
+           
+{% comment %}             
+            <a href="#" class="sale">Sale</a> {% endcomment %}
+
+            {% comment %} <div class="dropdown">
+            <a href="" class="sale">view card</a>
+            <div class="dropdown-menu">
+
+              <h4>view card items</h4>
+
+              
+              <button><a href="/cart">view card</a></button>
+              
+
+            </div>
+          </div>
+
+            <div class="dropdown">
+              <a href="#">profile</a>
+              <div class="dropdown-menu">
+                <h4>customer details</h4>
+                <a href="/singup">singup</a>
+                <a href="/login">login</a>
+
+              </div>
+            </div>
+
+            <a href="/contactnav">contact</a>
+            <a href="/about">About</a>
+
+            <div class="dropdown">
+            <a href="#" style="font-size: 40px; color: #000;">🕿</a>
+            <div class="dropdown-menu">
+              <h4>wall items</h4>
+              <a href="/add2">📞 8770128263</a>
+              <a href="/add2">✉️ sahuji8050@.....</a>
+             
+
+
+              
+          </div>
+      </div>
+
+      
+        </div>
+    </div>
+</body> {% endcomment %}
+
+{% comment %} ===============================================new nav bar================ {% endcomment %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 30px;
+        }
+
+        .logo h1 {
+            font-size: 23px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo p {
+            font-size: 16px;
+            color: gray;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Underline Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: black;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <h1>HASTKAL CREATIONS</h1>
+            <p>store of nature</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="cart/">Card</a>
+
+            <a href="about">About</a>
+            <a href="contactnav">Contact</a>
+
+            
+
+
+            
+        </div>
+    </nav>
+
+</body>
+
+{% comment %} ------------------------------------------------------------------------------------ {% endcomment %}
+
+
+
+
+{% comment %} ----------------------------------------------------bar-------------------------------------------- {% endcomment %}
+   
+    {% block content %}
+
+    {% comment %} ------------------------------------------------------------------slider-------------------------------- {% endcomment %}
+    <body>
+        <div class="slider-container">
+        <!-- Image Slide -->
+        <div class="slider">
+            <div class="slide active">
+            <img src="{% static 'images/istock2.jpg' %}" alt="product1" >
+        
+        
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/istock.jpg' %}" alt="Product2">
+
+              
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/istock3.jpg' %}" alt="Product 3"   >
+                
+
+            </div>
+            </div>
+            
+
+            <!-- Navigation Arrows -->
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </div> 
+
+    {% comment %} ============================================= in palce of slider================ {% endcomment %}
+    {% comment %} <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #fff;
+          color: #000;
+      }
+      .container {
+          width: 90%;
+          margin: auto;
+          padding: 50px 0;
+          text-align: center;
+      }
+      h1 {
+          font-size: 40px;
+          font-weight: bold;
+      }
+      .highlight {
+          color: #b68d4c;
+      }
+      .about-text {
+          max-width: 800px;
+          margin: auto;
+          font-size: 18px;
+          line-height: 1.6;
+      }
+      .about-section {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          margin-top: 50px;
+      }
+      .about-section img {
+          width: 45%;
+          border-radius: 5px;
+      }
+      .text-box {
+          width: 45%;
+          text-align: left;
+      }
+      .quote {
+          font-size: 28px;
+          font-weight: bold;
+          color: #000;
+      }
+      .quote .highlight {
+          font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+      <div class="about-section">
+          <div class="text-box">
+              <p class="quote">“WE ARE <span class="highlight">MODERN, MINDFUL,</span> & <span class="highlight">UNIQUELY INDIAN!</span>”</p>
+          </div>
+          <img src="{% static 'images/aes.jpg' %}" alt="Artisan at Work"> {% endcomment %}
+      </div>
+{% comment %} 
+      <div class="about-section">
+          <img src="{% static 'images/pooja.jpg' %}" alt="Handcrafted Woodwork">
+          <div class="text-box">
+              <h2>HOW WE WERE <span class="highlight">BORN?</span></h2>
+              <p>Rooted in the cultural mosaic of Rajasthan, our founders, with a heritage in exporting handicrafts, envisioned our brand as a celebration of India's artistry. Beyond North India’s borders, our brand serves as a platform spotlighting undiscovered design brilliance.</p>
+          </div> {% endcomment %}
+      {% comment %} </div>
+  </div>
+</body> {% endcomment %}
+
+
+
+{% comment %} ---------------------------------------------------------circles--------------------------------------------- {% endcomment %}
+
+    <div class="product-section" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center; background-color: #fff;">
+            <div class="product-circle">
+            <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/candel stand.webp' %}'); ;"></div>
+            <p>Candle Stands</p>
+            </div>
+            <div class="product-circle">
+            <div class="product-image-circl"  onclick="location.href='./add2'" style="background-image: url('{% static 'images/Candles & Fragrances.webp' %}');"></div>
+            <p>Candles & Fragrances</p> 
+            </div>
+            <div class="product-circle">
+            <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/Decoratives.webp' %}'); "></div>
+            <p>Decoratives</p>
+            </div>
+            <div class="product-circle">
+            <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/Vases.jpg' %}');"></div>
+            <p>Vases</p>
+            
+            </div>
+            <div class="product-circlet">
+            <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/gift2.png' %}');"></div>
+            <p>Gifts</p>
+            </div>
+
+           <div class="product-circle">
+            <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/pots.png' %}');"></div>
+            <p>plants pots</p>
+            </div> 
+
+            {% comment %} <div class="product-circlet">
+              <div class="product-image-circl" onclick="location.href='./add2'" style="background-image: url('{% static 'images/pots.png' %}');"></div>
+              <p>plants pots</p>
+              </div> {% endcomment %}
+
+            </div>
+            
+    </div>
+
+{% comment %} ------------------------------------------img content click img---------------------------------------------------------------------- {% endcomment %}
+<section class="trendalert">
+    <body class="trend">
+    <style>
+    
+      .container_on{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 30px;
+      }
+      .card {
+        text-align:;
+        cursor:pointer;
+      }
+      .card img {
+        width: 100%;
+        height: 85%;
+        border-radius: 2px;
+      }
+      .card-title {
+        margin-top: 30px;
+        font-size: 1.2em;
+      
+        text-align: left;
+      }
+    
+    </style>
+
+  
+    <h1 style="text-align: left; padding: 1px; height:20px;">Trend Alert</h1>
+    <div class="container_on">
+        <div class="card" onclick="location.href='./add1'">
+          <img src="{% static "images/clock.png" %}" alt="Selection" >
+          <p class="card-title">Selection</p>
+        </div>
+        <div class="card" onclick="location.href='./add1'">
+          <img src="{% static "images/clock.png" %}" alt="Office Collection">
+          <p class="card-title">Office Collection</p>
+        </div>
+        <div class="card" onclick="location.href='./add1'">
+          <img src="{% static "images/clock.png" %}" alt="Sculptures & Figurines">
+          <p class="card-title">Sculptures & Figurines</p>
+        </div>
+        <div class="card" onclick="location.href='./add1'">
+          <img src="{% static "images/clock.png" %}" alt="Season's Scents">
+          <p class="card-title">Season's Scents</p>
+        </div>
+    </div>
+    </body>
+</section>
+
+  {% comment %} --------------------------------------------bestseller---------------------------------
+   {% endcomment %}
+  
+   
+<section class="bestsellers">
+      <body>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+        }
+        .product-container {
+          display:contents;
+          gap: 40px;
+          padding: 40px;
+        }
+        .product {
+          border: 1px solid #ddd;
+          padding: 20px;
+          text-align: left;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .product button {
+        
+          cursor: pointer;
+          
+        }
+        .cart-sidebar,.cart-sidebar2,.cart-sidebar3,.cart-sidebar4 {
+          position: fixed;
+          top: 0;
+          left: -400px;
+          width: 400px;
+          height: 100%;
+          background-color: #fff;
+          box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+          overflow-y: auto;
+          transition: 0.3s;
+          z-index: 1000;
+        }
+        .cart-header,.cart-header2 ,.cart-header3 ,.cart-header4{
+          padding: 20px;
+          font-size: 1.5em;
+          font-weight: bold;
+          background-color:rgb(16, 16, 16);
+          color: #fff;
+          border-bottom: 1px solid #ddd;
+        }
+        .cart-content {
+          padding: 20px;
+      
+          
+        }
+        .checkout-button {
+          width: 100%;
+          padding: 10px;
+          background-color: black;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+
+
+        .overlay, .overlay2 ,.overlay3 ,.overlay4{
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 70%;
+          background-color: rgba(86, 72, 72, 0.5);
+          z-index: 999;
+        }
+
+        .imgesitem{
+          padding: auto;
+          height: 1px;
+          width: 20%;
+        }
+
+        .cart-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+
+        .product-details {
+          flex: 1;
+          width: 350px;
+        }
+
+        .product-image-slider {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+        .btn{
+          background-color:white;
+          color: black;
+          border: 0;
+          padding: 10px 70px;
+          cursor: pointer;
+          transition: background-color 0.7s ease;
+          font-size: 14px;
+          border-radius: 10px;
+          }
+
+        .check{
+          background-color: #fff;
+          border: 0;
+          border-radius: 10px;
+          padding: 10px 60px;
+          padding-bottom: 10px;
+          
+          
+          transition: background-color 0.7s ease;
+
+        }
+        .data p{
+          top: 60px;
+          color: #555;
+
+
+        }
+        .close-btn-B{
+          background-color:rgb(0, 0, 0);
+          padding: 10px;
+          color: #f4f4f4;
+          border: 0;
+          font-size: 30px;
+        }
+        
+        
+      </style>
+
+        <div class="bestsellers-left">
+            <h2>Shop our bestsellers</h2>
+            <button class="shop-now" onclick="location.href='./add2'">Shop Now</button>
+        </div>
+        
+        <div class="bestsellers-right">
+            <div class="product-carousel">
+          
+
+
+
+                <div class="product-card">
+                    <img src="{% static 'images/gift3.png' %}" alt="Product 1" style="cursor: pointer;">
+                    <p class="product-name">Black & Gold Palm Print</p>
+                    <p class="product-price">₹ 2,999</p>
+                    
+                    <button class="check" onclick="location.href='{% url 'product_detail' product_id=2 %}'">Checkout</button> 
+
+                  
+                </div>
+                
+
+
+                <div class="product-card">
+                    <img src="{%static 'images/pots.png'%}" alt="Product 2">
+                    
+                    <p class="product-name">Dark Green Glazed Ceramic</p>
+                    <p class="product-price">₹ 2,199</p>
+                    {% comment %} <button class="btn" onclick="openCart2()">checkout</button> {% endcomment %}
+                    <button class="check" onclick="location.href='{% url 'product_detail' product_id=1 %}'">checkout</button>  
+
+                </div>
+
+
+                <div class="product-card">
+                    <img src="{% static 'images/wallart.png'%}" alt="Product 3">
+                    
+                    <p class="product-name">Amber & Gold Glass Hammered</p>
+                    <p class="product-price">₹ 4,199</p>
+                    {% comment %} <button class="btn" onclick="openCart3()">checkout</button> {% endcomment %}
+                    <button class="check" onclick="location.href='{% url 'product_detail' product_id=3 %}'">checkout</button> 
+
+                </div>
+               
+
+
+                <div class="product-card">
+                  
+                    <img src="{% static 'images/pendanttligth.png'%}" alt="Product 4">
+                    
+                    <p class="product-name">Amber & Gold Tall Hammered</p>
+                    <p class="product-price">₹ 4,499</p>
+                    {% comment %} <button class="btn" onclick="openCart4()">checkout</button> {% endcomment %}
+                    <button class="check" onclick="location.href='{% url 'product_detail' product_id=4 %}'">checkout
+                    </button> 
+
+                </div>
+               
+              </body>
+
+
+                
+            </div>
+        </div>
+        
+
+</section>
+{% comment %} -------------------------------------------------img text--------------------------------------------- {% endcomment %}
+
+
+<body class="img">
+  <style>
+    .phototext1{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .phototext-container1{
+        position: relative;
+        width: 400;
+        height: 500px;
+         
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .phototext-container1img {
+        width: 80%;
+        display: block;
+    }
+    .overlay-text1 {
+        position: absolute;
+        top: 35%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+
+        color:white;
+        font-size: 70px;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0); /* Background for readability */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .overlay-text1-2 {
+      position: absolute;
+      top: 45%;
+      left: 26%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0); /* Background for readability */
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+  }
+    .overlay-button1 {
+        position: absolute;
+        
+        top: 350px;
+        left: 25%;
+        transform: translate(-50%, 0);
+        background-color:rgba(30, 30, 34, 0);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        font-size: 16px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .overlay-button1:hover {
+        background-color:rgb(139, 79, 70);
+        color: whitesmoke;
+    }
+
+  
+  </style>
+  </head>
+  <body class="phototext1">
+  <div class="phototext-container1">
+    <img src="{% static 'images/full.jpg' %}" alt="Decor">
+  
+ 
+    <div class="overlay-text1">Corporate Gift's</div>
+    <div class="overlay-text1-2">make your corporate happy </div>
+    <button class="overlay-button1" onclick="location.href='./4'">Checkout</button>
+  </div>
+</body>
+</body>
+
+
+
+{% comment %} ---------------------------------------------------------product list ----------------- {% endcomment %}
+
+
+
+
+<body>
+
+  <style>
+    /* General Reset */
+  
+
+    /* Product Grid */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content:space-evenly;
+      max-width: 1500px;
+      margin: 20px auto;
+      cursor: pointer;
+
+    }
+
+    /* Product Card */
+    .custom-card {
+      width: 280px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .custom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0);
+    }
+
+    /* Image Section */
+    .custom-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-card:hover .custom-image img {
+      transform: scale(2.0);
+    }
+
+    /* Overlay Section */
+    .custom-overlay {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .custom-card:hover .custom-overlay {
+      opacity: 1;
+    }
+
+    .custom-overlay .custom-btn {
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 30px;
+      margin: 5px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .custom-overlay .custom-btn:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .custom-overlay .custom-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .custom-overlay .custom-icons i {
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-overlay .custom-icons i:hover {
+      transform: scale(1.2);
+      color: #007bff;
+    }
+
+    /* Product Info Section */
+    .custom-info {
+      padding: 15px;
+      text-align: center;
+      background:#fdfdfd;
+    }
+
+    .custom-info h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .custom-info p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .custom-info .custom-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .check10{
+      background-color:white;
+      color: #000;
+      border: 0;
+      border-radius: 100px;
+      padding: 7px 20px;
+      padding-bottom: 10px;
+      column-gap: 1px;
+      
+      
+      transition: background-color 0.7s ease;
+
+    }
+  </style>
+  
+
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          {% comment %} <button class="custom-btn">Add to Cart</button> {% endcomment %}
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button>  
+          
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+         
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 1</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹3,999.00</span>
+        
+      </div>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 2</h3>
+        <p>Primary Collection</p>
+        <span class="custom-price">₹2,599.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 3</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹3,699.00</span>
+      </div>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+
+
+    <div class="custom-card">
+      <div class="custom-image">
+        <img src="{% static 'images/3man.jpg' %}" alt="Product Image">
+        <div class="custom-overlay">
+          <button class="check10" onclick="location.href='{% url 'product_detail' product_id=5 %}'">checkout</button> 
+
+          <div class="custom-icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-search-plus"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+      <div class="custom-info">
+        <h3>Product 4</h3>
+        <p>Sketch Book</p>
+        <span class="custom-price">₹2,799.00</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+{% comment %} -------------------------------------------------------img + text------------------------ {% endcomment %}
+
+<style>
+  .imgtext {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+  }
+  .container-imgtext{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .text-content {
+    max-width: 50%;
+  }
+  .text-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .text-content p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+  }
+  .image-content {
+    max-width: 40%;
+  }
+  .image-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  
+</style>
+</head>
+<body class="imgtext">
+<div class="container-imgtext">
+  <div class="text-content">
+    <h1>PACKED with love</h1>
+    <p>
+      Unwrap a world of artistry from hastkala + Living. Thoughtfully crafted and wrapped with love, our handpicked curation of gifts from home decor, hand-crafted leather accessories to gleaming barware, and the prettiest photo frames, makes the process easy and memorable.
+    </p>
+    <p style="text-align: right; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;  color:brown; font-size: 30px;">
+      - Hastakal
+    </p>
+  </div>
+  <div class="image-content">
+    <img src="{% static "images/giftbox.jpg" %}" alt="Gift Box">
+  </div>
+</div>
+
+</body>
+
+{% comment %} --------------------------------product 3-------------------------------------{% endcomment %}
+<body class="product-3">
+    <style>
+      .product3 {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      .container-product3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 30px 0px;
+      }
+
+      .category {
+        position: relative;
+      
+        margin: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        scroll-snap-align: center;
+      }
+
+      .category img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .category:hover img {
+        transform: scale(1.3); /* Zoom in effect on hover */
+      }
+
+      .category .info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(2, 2, 2, 0.6);
+        color:black;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .category:hover .info {
+        transform: translateY(0); /* Move the text into the image on hover */
+      }
+
+      .category a {
+        text-decoration: none;
+        color:white;
+      }
+
+      .category a:hover {
+        color: #ffcc00; /* Optional hover effect for link */
+        
+      }
+    </style>
+  
+  <body class="product-3">
+    <h1>Shop by Soft Furnishing Categories</h1>
+    <div class="container-product3">
+      <div class="category">
+        <img src="{% static 'images/3dimage.png' %}" alt="Bath">
+        <div class="info"><a href="/4">Bath</a></div>
+      </div>
+      <div class="category">
+        <img src="{% static 'images/3dimage.png' %}" alt="Cushion Covers">
+        <div class="info"><a href="/4">Cushion Covers</a></div>
+      </div>
+      <div class="category">
+        <img src="{% static 'images/3dimage.png' %}" alt="Bedding">
+        <div class="info"><a href="/4">Bedding</a></div>
+      </div>
+      <div class="category">
+        <img src="{% static 'images/3dimage.png' %}" alt="Curtains">
+        <div class="info"><a href="/4">Curtains</a></div>
+      </div>
+    </div>
+  </body>
+</body>
+
+
+{% comment %} -----------------------------------------------------------------img text------------- {% endcomment %}
+   
+<body>
+  <style>
+    .phototext{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .phototext-container{
+        position: relative;
+        width: 600;
+        height: 550px;
+         
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .phototext-containerimg {
+      padding: 200px 100px;
+        width: 80%;
+        display: block;
+    }
+    .overlay-text {
+        position: absolute;
+        top: 60%;
+        left: 63%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 90px;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0); /* Background for readability */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .overlay-text2 {
+      position: absolute;
+      top: 47%;
+      left: 74%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 45px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0); /* Background for readability */
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+  }
+    .overlay-button {
+        position: absolute;
+        
+        top: 450px;
+        left: 65%;
+        transform: translate(-50%, 0);
+        background-color:rgba(30, 30, 34, 0);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        font-size: 16px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .overlay-button:hover {
+        background-color:rgba(255, 167, 237, 0.84);
+        color: black;
+    }
+  </style>
+  
+  <body class="phototext">
+  <div class="phototext-container">
+    <img src="{% static 'images/pinkgift.webp' %}" alt="Decor">
+    <div class="overlay-text">LO❤️E</div>
+     <div class="overlay-text2">your</div> 
+    <button class="overlay-button" onclick="location.href='./4'">Checkout</button>
+  </div>
+</body>
+
+{% comment %} ---------------------------------------------------------------------------------- {% endcomment %}
+
+ {% comment %} ---------------------------------------------------------------------- {% endcomment %}
+ {% endblock content %}
+<body>
+  
+ <footer class="footer">
+  <style>
+
+    .footer {
+      padding-top: 10px;
+      background-color:rgb(130, 130, 129); /* Matching color */
+      color: #fff;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-family: Arial, sans-serif;
+    }
+    .footer-section {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-section ul li {
+      margin: 5px 0;
+    }
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+    .footer-section .social-media img {
+      width: 24px;
+      margin: 5px;
+    }
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: calc(100% - 90px);
+      margin-right: 10px;
+    }
+    .newsletter button {
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .newsletter button:hover {
+      background-color: #555;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .social-icons {
+      text-align: left;
+      padding: 20px;
+      }
+      
+      .social-icons a {
+          display: inline-block;
+          margin: 0 10px;
+          font-size: 24px;
+          color: #333;
+          transition: color 0.3s;
+      }
+      
+      .social-icons a:hover {
+          color: #007bff; /* Change color on hover */
+      }
+      /* Comment Section */
+      .comments textarea {
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .comments button {
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .comments button:hover {
+        background-color: #555;
+    }
+    .comment-item {
+        background:white;
+        color: black;
+        padding: 7px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .like-btn {
+        background: none;
+        border: none;
+        color: red;
+        cursor: pointer;
+    }
+      
+    
+  </style>
+
+  <footer>
+      <div class="social-icons">
+         
+          
+      </div>
+  </footer>
+  
+  <div class="footer-section">
+          <h3>Online Shop</h3>
+          <ul>
+            <li><a href="add1">walls decor</a></li>
+            <li><a href="add1">rooms frams</a></li>
+            <li><a href="add2">wall frameset</a></li>
+            <li><a href="add2">Ready Made Curtains</a></li>
+            <li><a href="add1">Cushions</a></li>
+            <li><a href="add2">Gifting</a></li>
+            <li><a href="4">Home Decor Accessories</a></li>
+            <li><a href="4">paint product</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Discover</h3>
+          <ul>
+            <li><a href="#">Curtains</a></li>
+            <li><a href="#">Upholstery</a></li>
+            <li><a href="#">Bed & Bath</a></li>
+            <li><a href="#">Blinds</a></li>
+        
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>New Introductions</h3>
+          <ul>
+            <li><a href="#">Viroguard by D'Decor</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Corporate</h3>
+          <ul>
+            <li><a href="about">About Us</a></li>
+        
+            {% comment %} <li><a href="#">Store Locator</a></li> {% endcomment %}
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Follow us on instagram</a></li>
+            {% comment %} <li><a href="#">Careers</a></li> {% endcomment %}
+        
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Exchange Policy</a></li>
+            <li><a href="#">Store Locator</a></li>
+            <li><a href="#">Track My Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">WhatsApp Chat</a></li>
+            <li><a href="#">Leave Us Feedback</a></li>
+            <li><a href="#">Request an Appointment</a></li>
+          </ul>
+          <p>Call Us: <a href="8770128264">877012826</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="social-media">
+              <div class="social-icons">
+                  <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
+                  </div>
+
+
+            <div class="social-icons">
+            <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"> <i class="fab fa-instagram"></i></a>instagram
+            </div>
+
+
+            <div class="social-icons">
+              <a hreef="https://www.linkedin.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>LinkedIn
+              </div>
+            
+              
+
+            <div class="social-icons">
+              <a hreef="https://www.whatsapp.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>whats
+              </div>
+          
+            
+          </ul>
+        </div>
+
+
+        <div class="footer-section comments">
+          <h3>Leave a Comment</h3>
+          <form id="commentForm">
+              <textarea id="commentInput" placeholder="Write your comment here..." required></textarea>
+              <button type="submit">Post Comment</button>
+          </form>
+          <div id="commentsList">
+              <!-- Comments will be displayed here -->
+          </div>
+          <button id="viewAllBtn" style="display:none; background:#555; color:white; padding:5px 10px; border:none; cursor:pointer;">View All Comments</button>
+      </div>
+  </div>
+
+
+</footer> 
+ <footer style="background-color: white;">
+<p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
+<p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+</footer>
+
+
+ <!-- JavaScript to handle comments with Local Storage -->
+<script>
+  let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load saved comments
+
+  document.getElementById("commentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      let commentText = document.getElementById("commentInput").value;
+
+      if (commentText.trim() !== "") {
+          comments.unshift({ text: commentText, likes: 0 }); // Add new comment at the beginning
+          localStorage.setItem("comments", JSON.stringify(comments)); // Save to Local Storage
+
+          updateCommentsDisplay();
+          document.getElementById("commentInput").value = "";
+      }
+  });
+
+  function updateCommentsDisplay(showAll = false) {
+      let commentSection = document.getElementById("commentsList");
+      commentSection.innerHTML = "";
+
+      let displayedComments = showAll ? comments : comments.slice(0, 4); // Show last 4 by default
+
+      displayedComments.forEach((comment, index) => {
+          let commentDiv = document.createElement("div");
+          commentDiv.classList.add("comment-item");
+
+          let textSpan = document.createElement("span");
+          textSpan.textContent = comment.text;
+
+          let likeButton = document.createElement("button");
+          likeButton.classList.add("like-btn");
+          likeButton.innerHTML = `❤️ ${comment.likes}`;
+          likeButton.addEventListener("click", function() {
+              comment.likes++;
+              likeButton.innerHTML = `❤️ ${comment.likes}`;
+              localStorage.setItem("comments", JSON.stringify(comments)); // Save likes in Local Storage
+          });
+
+          commentDiv.appendChild(textSpan);
+          commentDiv.appendChild(likeButton);
+          commentSection.appendChild(commentDiv);
+      });
+
+      // Show or hide "View All Comments" button
+      let viewAllBtn = document.getElementById("viewAllBtn");
+      if (comments.length > 4) {
+          viewAllBtn.style.display = "block";
+          viewAllBtn.onclick = function () {
+              updateCommentsDisplay(true);
+              viewAllBtn.style.display = "none"; // Hide button after viewing all
+          };
+      } else {
+          viewAllBtn.style.display = "none";
+      }
+  }
+
+  // Load comments when page loads
+  updateCommentsDisplay();
+</script>
+
+
+</body>
+
+ 
+<script src="{% static 'web.js' %}"></script>
+</body>
+
+</html>
+
+{% comment %} =================================================================================================== {% endcomment %}

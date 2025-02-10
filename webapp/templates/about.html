@@ -1,0 +1,531 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+    /* Navbar Container */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: white;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .navbar h1 {
+        font-size: 40px;
+        font-weight: bold;
+        color:darkslategrey;
+        padding-left: 43%;
+        
+    }
+
+    .navbar h1 span {
+        font-size: 14px;
+        padding-left: 12px;
+        font-weight: normal;
+        display: block;
+        color:#000;
+    }
+
+</style>
+<body>
+<!-- Top Banner -->
+
+<!-- Navbar -->
+<div class="navbar">
+    <!-- Logo and Heading -->
+     <h1>
+        Hastkala
+        <span>Homes Made Beautiful</span>
+    </h1> 
+    <div style="padding-right: 60px; font-size: 40px; color: #000;">
+     <a href="/home" style="color: #000;">⌂</a>
+    </div>
+
+    </div>
+</div>
+</body>
+
+
+{% comment %} ======================================================================================================================= {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    
+    <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .highlight {
+            color: #C69C6D; /* Gold color */
+        }
+
+        .about-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* WhatsApp Chat Button */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-chat img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- About Us Section -->
+    <div class="container">
+        <h1 class="about-title"><b>ABOUT <span class="highlight">US</span></b></h1>
+        <p class="about-description">
+            We are a brand that celebrates sustainability, and our designs reflect the style of modern Indian homeowners. 
+            Through our collection, we try to preserve and embrace age-old crafts, weaving tales of heritage in our products 
+            and fostering a community that shares and supports the journey of local artisans.
+        </p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="image-container">
+        <img src="{% static 'images/5x.webp' %}" class="img-fluid about-image" alt="Artisan at work">
+    </div>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/yourwhatsappnumber" class="whatsapp-chat" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="Chat with us">
+        Chat with us
+    </a>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 50px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .highlight {
+            color: #b68d4c;
+        }
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .about-section img {
+            width: 45%;
+            border-radius: 5px;
+        }
+        .text-box {
+            width: 45%;
+            text-align: left;
+        }
+        .quote {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+        }
+        .quote .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="about-section">
+            <div class="text-box">
+                <p class="quote">“WE ARE <span class="highlight">MODERN, MINDFUL,</span> & <span class="highlight">UNIQUELY INDIAN!</span>”</p>
+            </div>
+            <img src="{% static 'images/aes.jpg' %}" alt="Artisan at Work">
+        </div>
+
+        <div class="about-section">
+            <img src="{% static 'images/pooja.jpg' %}" alt="Handcrafted Woodwork">
+            <div class="text-box">
+                <h2>HOW WE WERE <span class="highlight">BORN?</span></h2>
+                <p>Rooted in the cultural mosaic of Rajasthan, our founders, with a heritage in exporting handicrafts, envisioned our brand as a celebration of India's artistry. Beyond North India’s borders, our brand serves as a platform spotlighting undiscovered design brilliance.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<body>
+  
+  <footer class="footer">
+   <style>
+ 
+     .footer {
+       padding-top: 10px;
+       background-color:rgb(130, 130, 129); /* Matching color */
+       color: #fff;
+       padding: 40px;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       font-family: Arial, sans-serif;
+     }
+     .footer-section {
+       flex: 1 1 200px;
+       margin: 10px;
+     }
+     .footer-section h3 {
+       font-size: 18px;
+       margin-bottom: 10px;
+       text-transform: uppercase;
+     }
+     .footer-section ul {
+       list-style: none;
+       padding: 0;
+     }
+     .footer-section ul li {
+       margin: 5px 0;
+     }
+     .footer-section ul li a {
+       color: #fff;
+       text-decoration: none;
+     }
+     .footer-section ul li a:hover {
+       text-decoration: underline;
+     }
+     .footer-section .social-media img {
+       width: 24px;
+       margin: 5px;
+     }
+     .newsletter input[type="email"] {
+       padding: 10px;
+       width: calc(100% - 90px);
+       margin-right: 10px;
+     }
+     .newsletter button {
+       padding: 10px;
+       background-color: #333;
+       color: #fff;
+       border: none;
+       cursor: pointer;
+     }
+     .newsletter button:hover {
+       background-color: #555;
+     }
+     .copyright {
+       text-align: center;
+       margin-top: 20px;
+       font-size: 14px;
+     }
+ 
+     .social-icons {
+       text-align: left;
+       padding: 20px;
+       }
+       
+       .social-icons a {
+           display: inline-block;
+           margin: 0 10px;
+           font-size: 24px;
+           color: #333;
+           transition: color 0.3s;
+       }
+       
+       .social-icons a:hover {
+           color: #007bff; /* Change color on hover */
+       }
+       /* Comment Section */
+       .comments textarea {
+         width: 100%;
+         height: 80px;
+         padding: 10px;
+         margin-bottom: 10px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+     }
+     .comments button {
+         padding: 10px;
+         background-color: #333;
+         color: white;
+         border: none;
+         cursor: pointer;
+     }
+     .comments button:hover {
+         background-color: #555;
+     }
+     .comment-item {
+         background:white;
+         color: black;
+         padding: 7px;
+         border-radius: 5px;
+         margin-top: 10px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+     }
+     .like-btn {
+         background: none;
+         border: none;
+         color: red;
+         cursor: pointer;
+     }
+       
+     
+   </style>
+ 
+   <footer>
+       <div class="social-icons">
+          
+           
+       </div>
+   </footer>
+   
+   <div class="footer-section">
+           <h3>Online Shop</h3>
+           <ul>
+             <li><a href="add1">walls decor</a></li>
+             <li><a href="add1">rooms frams</a></li>
+             <li><a href="add2">wall frameset</a></li>
+             <li><a href="add2">Ready Made Curtains</a></li>
+             <li><a href="add1">Cushions</a></li>
+             <li><a href="add2">Gifting</a></li>
+             <li><a href="4">Home Decor Accessories</a></li>
+             <li><a href="4">paint product</a></li>
+           </ul>
+         </div>
+         <div class="footer-section">
+           <h3>Discover</h3>
+           <ul>
+             <li><a href="#">Curtains</a></li>
+             <li><a href="#">Upholstery</a></li>
+             <li><a href="#">Bed & Bath</a></li>
+             <li><a href="#">Blinds</a></li>
+         
+           </ul>
+         </div>
+         <div class="footer-section">
+           <h3>New Introductions</h3>
+           <ul>
+             <li><a href="#">Viroguard by D'Decor</a></li>
+           </ul>
+         </div>
+         <div class="footer-section">
+           <h3>Corporate</h3>
+           <ul>
+             <li><a href="about">About Us</a></li>
+         
+             {% comment %} <li><a href="#">Store Locator</a></li> {% endcomment %}
+             <li><a href="#">Media</a></li>
+             <li><a href="#">Follow us on instagram</a></li>
+             {% comment %} <li><a href="#">Careers</a></li> {% endcomment %}
+         
+           </ul>
+         </div>
+         <div class="footer-section">
+           <h3>Customer Service</h3>
+           <ul>
+             <li><a href="#">FAQs</a></li>
+             <li><a href="#">Exchange Policy</a></li>
+             <li><a href="#">Store Locator</a></li>
+             <li><a href="#">Track My Order</a></li>
+             <li><a href="#">Privacy Policy</a></li>
+         
+           </ul>
+         </div>
+         <div class="footer-section">
+           <h3>Get in Touch</h3>
+           <ul>
+             <li><a href="#">Live Chat</a></li>
+             <li><a href="#">WhatsApp Chat</a></li>
+             <li><a href="#">Leave Us Feedback</a></li>
+             <li><a href="#">Request an Appointment</a></li>
+           </ul>
+           <p>Call Us: <a href="8770128264">877012826</a></p>
+         </div>
+         <div class="footer-section">
+           <h3>Follow Us</h3>
+           <ul class="social-media">
+               <div class="social-icons">
+                   <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
+                   </div>
+ 
+ 
+             <div class="social-icons">
+             <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"> <i class="fab fa-instagram"></i></a>instagram
+             </div>
+ 
+ 
+             <div class="social-icons">
+               <a hreef="https://www.linkedin.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>LinkedIn
+               </div>
+             
+               
+ 
+             <div class="social-icons">
+               <a hreef="https://www.whatsapp.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>whats
+               </div>
+           
+             
+           </ul>
+         </div>
+ 
+ 
+         <div class="footer-section comments">
+           <h3>Leave a Comment</h3>
+           <form id="commentForm">
+               <textarea id="commentInput" placeholder="Write your comment here..." required></textarea>
+               <button type="submit">Post Comment</button>
+           </form>
+           <div id="commentsList">
+               <!-- Comments will be displayed here -->
+           </div>
+           <button id="viewAllBtn" style="display:none; background:#555; color:white; padding:5px 10px; border:none; cursor:pointer;">View All Comments</button>
+       </div>
+   </div>
+ 
+ 
+ </footer> 
+  <footer style="background-color: white;">
+ <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
+ <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+ </footer>
+ 
+ 
+  <!-- JavaScript to handle comments with Local Storage -->
+ <script>
+   let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load saved comments
+ 
+   document.getElementById("commentForm").addEventListener("submit", function(event) {
+       event.preventDefault();
+       let commentText = document.getElementById("commentInput").value;
+ 
+       if (commentText.trim() !== "") {
+           comments.unshift({ text: commentText, likes: 0 }); // Add new comment at the beginning
+           localStorage.setItem("comments", JSON.stringify(comments)); // Save to Local Storage
+ 
+           updateCommentsDisplay();
+           document.getElementById("commentInput").value = "";
+       }
+   });
+ 
+   function updateCommentsDisplay(showAll = false) {
+       let commentSection = document.getElementById("commentsList");
+       commentSection.innerHTML = "";
+ 
+       let displayedComments = showAll ? comments : comments.slice(0, 4); // Show last 4 by default
+ 
+       displayedComments.forEach((comment, index) => {
+           let commentDiv = document.createElement("div");
+           commentDiv.classList.add("comment-item");
+ 
+           let textSpan = document.createElement("span");
+           textSpan.textContent = comment.text;
+ 
+           let likeButton = document.createElement("button");
+           likeButton.classList.add("like-btn");
+           likeButton.innerHTML = `❤️ ${comment.likes}`;
+           likeButton.addEventListener("click", function() {
+               comment.likes++;
+               likeButton.innerHTML = `❤️ ${comment.likes}`;
+               localStorage.setItem("comments", JSON.stringify(comments)); // Save likes in Local Storage
+           });
+ 
+           commentDiv.appendChild(textSpan);
+           commentDiv.appendChild(likeButton);
+           commentSection.appendChild(commentDiv);
+       });
+ 
+       // Show or hide "View All Comments" button
+       let viewAllBtn = document.getElementById("viewAllBtn");
+       if (comments.length > 4) {
+           viewAllBtn.style.display = "block";
+           viewAllBtn.onclick = function () {
+               updateCommentsDisplay(true);
+               viewAllBtn.style.display = "none"; // Hide button after viewing all
+           };
+       } else {
+           viewAllBtn.style.display = "none";
+       }
+   }
+ 
+   // Load comments when page loads
+   updateCommentsDisplay();
+ </script>
+ 
+ 
+ </body>

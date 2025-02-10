@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now</title>
+</head>
+<body>
+    <h1>Buy Now</h1>
+    <div>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+        <h2>{{ product.name }}</h2>
+        <p>Price: ₹{{ product.price }}</p>
+        <p>GST (13%): ₹{{ gst }}</p>
+        <h3>Total: ₹{{ total_price }}</h3>
+        <form action="/payment/" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit">Proceed to Payment</button>
+        </form>
+    </div>
+</body>
+</html>

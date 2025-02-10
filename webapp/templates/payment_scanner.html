@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Payment Scanner</title>
+</head>
+<body>
+    <h1>Scan to Pay</h1>
+    <img src="{{ qr_code_url }}" alt="Scan to Pay">
+    <p>UPI ID: {{ upi_id }}</p>
+    <p>Amount: {{ grand_total }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Payment</button>
+    </form>
+</body>
+</html>

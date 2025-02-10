@@ -1,0 +1,522 @@
+<body>
+<style>
+    /* Navbar Container */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: white;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .navbar h1 {
+        font-size: 40px;
+        font-weight: bold;
+        color:darkslategrey;
+        padding-left: 43%;
+        
+    }
+
+    .navbar h1 span {
+        font-size: 14px;
+        padding-left: 12px;
+        font-weight: normal;
+        display: block;
+        color:#000;
+    }
+
+
+  
+
+   
+</style>
+
+<!-- Top Banner -->
+
+<!-- Navbar -->
+<div class="navbar">
+    <!-- Logo and Heading -->
+     <h1>
+        Hastkala
+        <span>Homes Made Beautiful</span>
+    </h1> 
+    <div style="padding-right: 60px; font-size: 40px; color: #000;">
+      <a href="/home" style="color: #000;">⌂</a>
+     </div>
+    </div>
+</div>
+</body>
+
+{% comment %} ---------------------------------------------------------------------- {% endcomment %}
+{% comment %} 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<style>
+    .product-container {
+        margin-top: 20px;
+        padding: 100px;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-image {
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .productname{
+        padding-top: 50px;
+    }
+    .price {
+        font-size: 1.5rem;
+        color:rgb(60, 34, 191);
+        font-weight: bold;
+    }
+    .buy-now-btn {
+        background-color:rgb(9, 9, 9);
+        color: #ffffff;
+        color: white;
+        border-radius: 1px;
+        transition: background-color 0.3s ease;
+        padding: 20px;
+    
+        
+    }
+    .buy-now-btn:hover {
+        background-color:rgb(227, 227, 227);
+        color: black
+        transition:background-color 0.3s ease;
+    }
+
+ 
+    
+</style>
+
+<div class="container product-container">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-image">
+        </div>
+        <div class="col-md-6">
+            <h1 class="productname">{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <p class="price">${{ product.price }}</p>
+           
+            <div>
+              {% comment %} <a href="{% url 'payment_buynow' product.id%}" class="btn buy-now-btn w-100">process payment</a> {% endcomment %}
+           
+            {% comment %} </div>
+
+            
+        </div>
+        
+    </div>
+</div>
+
+</body>
+  {% endcomment %}
+
+
+
+
+
+
+
+    {% comment %} -------------------------------------------------------- {% endcomment %}
+
+
+    
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopping Cart</title>
+        <style>
+    
+            .container {
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+            }
+            .cart-items {
+                flex: 3;
+                background-color: #fff;
+                padding: 20px;
+                border: 0px solid #ccc;
+            }
+            .cart-summary {
+                flex: 1;
+                background-color:rgba(244, 227, 200, 0.67);
+                padding: 30px;
+                border: 1px solid #ccc;
+            }
+            table {
+                width: 100%;
+             
+                text-align: center;
+                justify-content: space-between;
+            }
+            th{
+                padding: 10px;
+                text-align: left;
+                border-bottom: 0px solid #ddd;
+                text-align: center;
+                justify-content: space-between;
+
+            }
+             td {
+                font-size:30px;
+                padding: 10px;
+                text-align: left;
+                border-bottom: 0px solid #ddd;
+                text-align: center;
+                justify-content: space-between;
+            }
+            .product-image {
+                width: 350px;
+                height: 350px;
+                object-fit: cover;
+            }
+            .quantity-controls {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .btn {
+                padding: 8px 12px;
+                border: none;
+                background-color: #000;
+                color: #fff;
+                cursor: pointer;
+            }
+            .btn:hover {
+                background-color: #444;
+            }
+            .summary-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            .total {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            .Shopping_Cart{
+                padding-left: 22%;
+                padding-top: 10px;
+                font-family:serif;
+            }
+            .total{
+                font-size: 40px;
+            }
+            .listrow{
+                font-size: 20px;
+            }
+            .grandtotal{
+                font-size: 19px;
+            }
+            .cupan{
+                padding: 17px 50px;
+                padding-top: 20px;
+                gap:0px;
+            }
+    
+            .payment_button{
+                background-color:#000;
+                color: #fff;
+                padding: 15px 100px;
+                cursor: pointer;
+    
+             
+            }
+    
+    
+            .payment_button:hover, .applybutton:hover{
+                transition: background-color 0.3s ease;
+                background-color:#b1a084;
+                color: #000;
+            }
+            .applybutton{
+                background-color: #000;      
+                color: #fff;
+                padding:18px 13px;
+                cursor: pointer;
+            
+            }
+            .continue_button{
+                background-color:#000;
+                color: #fff;
+                padding: 15px 100px;
+                cursor: pointer;
+            }
+            .clear_button{
+                background-color:#000;
+                color: #fff;
+                padding: 15px 100px;
+                cursor: pointer;
+            }
+            .clear_button:hover,.continue_button:hover{
+                transition: background-color 0.3s ease;
+                background-color:#444;
+                color:#fff;
+            }
+            .btn_remove{
+                color: #000;
+                transition: background-color 0.3s ease;
+                background: transparent;
+                border: transparent;
+                font-weight: 100px;
+                font-size: 25px;
+                padding-top: 20px;
+                cursor: pointer;
+                
+            }
+            .product_name{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 70px;
+                padding-left: 30%;
+            }
+            .img-fluid_product-image{
+                padding: 30px;
+                width: 500px;
+                height: 500px;
+                align-items:center;
+                padding-left: 30%;
+                border-radius: 70px;
+            }
+            .product_price{
+                font-family: fantasy;
+                font-size: 70px;
+                color: darkgreen;
+                padding-left: 30%;
+            }
+            .btn{
+                padding: 10px 70px;
+            }
+          
+        </style>
+    </head>
+            <h1 class="Shopping_Cart" >Order Summary</h1>
+    <body>
+        
+        
+          
+            <div class="container">
+                    <div class="cart-items">
+                       
+                                        <div class="col-md-6 text-center">
+                                            <img src="{{ product.image.url }}" alt="{{ product.name }}"class="img-fluid_product-image">
+                                        </div>
+                                        
+                                        <div class="product_name" >{{ product.name }}</div>
+                                 
+                                    <div class="product_price">₹{{ product.price }}</div>
+                                   
+                              
+                                </tr>
+                               
+                            </tbody>
+                           
+                        </table>
+                       
+    
+                      
+                    </div>
+    
+                    <div class="cart-summary">
+                        <h2 class="total">Total</h2>
+                       
+                        <div class="summary-item">
+                            <span>{{ product.name }}</span>
+                            <span>₹{{ product.price }}</span>
+                        </div>
+                       
+                        
+
+                        {% comment %} <div class="summary-item">
+                            <span>GST (1%)</span>
+                            <span>₹{{ gst }}</span>
+                        </div> {% endcomment %}
+                       
+                        <div class="summary-item total">
+                            <span class="grandtotal">Grand Total</span>
+                            <span class="grandtotal">₹{{ product.price }}</span>
+                        </div>
+                        {% comment %} <form method="post" action="{% url 'apply_coupon' %}"> {% endcomment %}
+                            {% csrf_token %}
+                            
+                            <div class="payment" style="padding-top:50px ;">
+                         
+                                <a href="{% url 'payments_page_buynow' product.id %}" class="payment_button">Proceed to Payment</a>
+
+                                
+    
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+               
+           
+    </body>
+
+
+
+    {% comment %} ----------------------------------- {% endcomment %}
+    {% comment %} <footer class="footer">
+        <style>
+    
+          .footer {
+            padding-top: 10px;
+            background-color: #b1a084; /* Matching color */
+            color: #fff;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+          }
+          .footer-section {
+            flex: 1 1 200px;
+            margin: 10px;
+          }
+          .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+          }
+          .footer-section ul {
+            list-style: none;
+            padding: 0;
+          }
+          .footer-section ul li {
+            margin: 5px 0;
+          }
+          .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+          }
+          .footer-section ul li a:hover {
+            text-decoration: underline;
+          }
+          .footer-section .social-media img {
+            width: 24px;
+            margin: 5px;
+          }
+          .newsletter input[type="email"] {
+            padding: 10px;
+            width: calc(100% - 90px);
+            margin-right: 10px;
+          }
+          .newsletter button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+          }
+          .newsletter button:hover {
+            background-color: #555;
+          }
+          .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+          }
+          
+        </style>
+        <div class="footer-section">
+            <h3>Online Shop</h3>
+            <ul>
+              <li><a href="#">walls decor</a></li>
+              <li><a href="#">rooms frams</a></li>
+              <li><a href="#">wall frameset</a></li>
+              <li><a href="#">Ready Made Curtains</a></li>
+              <li><a href="#">Cushions</a></li>
+              <li><a href="#">Gifting</a></li>
+              <li><a href="#">Home Decor Accessories</a></li>
+              <li><a href="#">paint product</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Discover</h3>
+            <ul>
+              <li><a href="#">Curtains</a></li>
+              <li><a href="#">Upholstery</a></li>
+              <li><a href="#">Bed & Bath</a></li>
+              <li><a href="#">Blinds</a></li>
+          
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>New Introductions</h3>
+            <ul>
+              <li><a href="#">Viroguard by D'Decor</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Corporate</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+          
+              <li><a href="#">Store Locator</a></li>
+              <li><a href="#">Media</a></li>
+              <li><a href="#">Legal Policy</a></li>
+              <li><a href="#">Careers</a></li>
+          
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Exchange Policy</a></li>
+              <li><a href="#">Store Locator</a></li>
+              <li><a href="#">Track My Order</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+          
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Get in Touch</h3>
+            <ul>
+              <li><a href="#">Live Chat</a></li>
+              <li><a href="#">WhatsApp Chat</a></li>
+              <li><a href="#">Leave Us Feedback</a></li>
+              <li><a href="#">Request an Appointment</a></li>
+            </ul>
+            <p>Call Us: <a href="8770128264">877012826</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-media">
+              <li><a href="https://www.facebook.com"><img src="facebook-icon.png" alt="Facebook"></a></li>
+              <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+              <li><a href="#"><img src="pinterest-icon.png" alt="Pinterest"></a></li>
+              <li><a href="#"><img src="youtube-icon.png" alt="YouTube"></a></li>
+              <li><a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a></li>
+              
+            </ul>
+          </div>
+          <div class="footer-section newsletter">
+            <h3>Subscribe to Our Latest Emails</h3>
+            <form action="#" method="post">
+              <input type="email" placeholder="Enter your email address">
+              <button type="submit">Join</button>
+            </form>
+        </div>
+    
+    
+    
+    
+      
+    </footer>
+    <footer style="background-color: white;">
+      <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
+      <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+    </footer> {% endcomment %}
+    

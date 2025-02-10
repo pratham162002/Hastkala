@@ -1,0 +1,249 @@
+
+<style>
+  /* Navbar Container */
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+  }
+
+  .navbar h1 {
+      font-size: 35px;
+      font-weight: bold;
+      color:darkslategrey;
+      padding-left: 43%;
+      
+  }
+
+  .navbar h1 span {
+      font-size: 14px;
+      padding-left: 12px;
+      font-weight: normal;
+      display: block;
+      color:#000;
+  }
+
+
+
+
+ 
+</style>
+<body>
+<!-- Top Banner -->
+
+<!-- Navbar -->
+<div class="navbar">
+  <!-- Logo and Heading -->
+   <h1>
+      Hastkala
+      <span>Homes Made Beautiful</span>
+  </h1> 
+
+  </div>
+</div>
+</body>
+
+
+
+
+<body class="singuppage">
+    <style>
+
+        /* Section Styling */
+        .ftco-section {
+          padding: 50px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* Form Container */
+        .login-wrap {
+          background: #fff;
+          
+          padding: 40px;
+          
+          position: relative;
+          
+          
+        }
+
+        .login-wrap:before {
+          content: "";
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          top: -75%;
+          left: -75%;
+          
+        }
+
+        /* Title and Subtitle */
+        h3.text-center {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color:rgb(0, 0, 0);
+          margin-bottom: 20px;
+          text-transform: uppercase;
+        }
+
+        /* Input Fields */
+        .form-group {
+          position: relative;
+          margin-bottom: 20px;
+        }
+
+        .form-group input {
+          width: 100%;
+          padding: 10px 15px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 1rem;
+          color: #333;
+          transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+          border-color:rgb(0, 0, 0);
+          box-shadow: 0 0 5px rgba(106, 17, 203, 0.3);
+          outline: none;
+        }
+
+        .icon {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+          color: #6a11cb;
+          font-size: 1.2rem;
+          pointer-events: none;
+        }
+
+        .form-group input:hover {
+          background: rgba(106, 17, 203, 0.05);
+        }
+
+        /* Buttons */
+        .btn {
+          
+          background:rgb(0, 0, 0);
+          color: #fff;
+          font-size: 1rem;
+          font-weight: bold;
+          border: none;
+          padding: 15px 150px;
+          border-radius: 5px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .btn:hover {
+          background:rgb(255, 255, 255);
+          color: #000;
+        }
+
+        a.btn {
+          display: block;
+          text-align: center;
+          background: #fff;
+          color:rgb(0, 0, 0);
+          border: 2px solidrgb(251, 251, 251);
+          margin-top: 10px;
+        }
+
+        a.btn:hover {
+          color: #fff;
+          background:rgb(0, 0, 0);
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes floatEffect {
+          0%, 100% {
+            transform: translateX(0) translateY(0);
+          }
+          50% {
+            transform: translateX(5px) translateY(5px);
+          }
+        }
+
+    </style>
+  <section class="ftco-section">
+    <div class="container">
+      <!-- <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading-section">SignUp</h2>
+        </div>
+      </div> -->
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap py-5">
+            <!-- <div class="img d-flex align-items-center justify-content-center" style="background-image: url(../static/images/bg.jpg);"></div> -->
+            <h3 class="text-center mb-0">Create new account!</h3>
+            <p>already have an account! <a href="login">login</a>
+            </p>
+           <!--  <p class="text-center">Sign Up by entering the information below</p> -->
+            <form action="signsave" class="login-form" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+                <input type="text" class="form-control" placeholder="Username" required name="uname">
+              </div>
+              <div class="form-group">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+                <input type="text" class="form-control" placeholder="age" required name="age">
+              </div>
+              <div class="form-group">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+                <input type="password" class="form-control" placeholder="Password" required name="upass">
+              </div>
+              <div class="form-group">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-mobile"></span></div>
+                <input type="text" class="form-control" placeholder="Mobile" required name="umobile">
+              </div>
+              <div class="form-group">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-address-book-o"></span></div>
+                <input type="text" class="form-control" placeholder="Address" required name="uaddress">
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn form-control btn-primary rounded submit px-3">SignUp</button>
+              </div>
+              
+              <div class="form-group">
+              {% comment %} <a href="/login" class="btn form-control btn-primary rounded submit px-3"> login</a> {% endcomment %}
+              </div>
+            </form>
+          
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
