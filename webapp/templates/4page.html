@@ -7,241 +7,486 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>best page</title>
   <link rel="stylesheet" href="{% static 'add1.css' %}">
 
-
-
   <style>
+    .btn {
+        background-color: white;
+        color: black;
+        border: 0;
+        padding: 10px 70px;
+        cursor: pointer;
+        transition: background-color 0.7s ease;
+        font-size: 14px;
+        border-radius: 10px;
+    }
 
-    .btn{
-      background-color:white;
-      color: black;
-      border: 0;
-      padding: 10px 70px;
-      cursor: pointer;
-      transition: background-color 0.7s ease;
-      font-size: 14px;
-      border-radius: 10px;
-      }
-        body {
-          margin: 0;
-          padding: 0;
-          height: 10%;
-          
+    body {
+        margin: 0;
+        padding: 0;
+        height: 10%;
+    }
 
-      }
-      
-      .background-container {
-          position: relative;
-          width: 100%;
-          height: 700px;
-          overflow: hidden;
-          padding-bottom: 20px;
-      }
-      
-      .background-image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 70%;
-          object-fit: cover; /* Ensures the background image covers the container */
-          z-index: 1; /* Lower z-index for background */
-         
-      }
-      
-      .overlay-image {
-          position: absolute;
-          top: 70%; /* Adjust the position of the overlay image */
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 400px; /* Set the size of the overlay image */
-          z-index: 2; /* Higher z-index to appear above the background */
-          width: 400px;
-         height: 400px;
-          border-radius: 50%;
-          background-size: cover;
-          background-position: center;
-          margin: 0 auto 10px;
-      
+    .background-container {
+        position: relative;
+        width: 100%;
+        height: 700px;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        object-fit: cover; /* Ensures the background image covers the container */
+        z-index: 1; /* Lower z-index for background */
+    }
+
+    .overlay-image {
+        position: absolute;
+        top: 70%; /* Adjust the position of the overlay image */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px; /* Set the size of the overlay image */
+        height: 400px;
+        z-index: 2; /* Higher z-index to appear above the background */
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto 10px;
+    }
+
+    .pp {
+        width: 75%;
+        margin-top: 1%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding-left: 450px;
+    }
+
+    /* Media Query for Mobile Devices */
+    @media only screen and (max-width: 768px) {
+        .background-container {
+            height: 500px; /* Reduce height for mobile */
         }
-        .pp{
-          width: 75%;
-          margin-top: 1%;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          text-align: center;
-          padding-left:450px;
 
-          
+        .background-image {
+            height: 60%; /* Adjust background image height for mobile */
         }
 
-        
-      
-      </style>
-      <body>
-      <div class="background-container">
-          <!-- Background Image -->
-          <img src="{% static 'images/wall-mirror.jpg' %}" alt="Background" class="background-image"  >
-          
-          <!-- Overlay Image -->
-          <img src="{% static 'images/logop.png' %}" alt="Overlay" class="overlay-image">
-          
-  </div>
+        .overlay-image {
+            width: 200px; /* Reduce overlay image size for mobile */
+            height: 200px;
+            top: 60%; /* Adjust overlay image position for mobile */
+        }
+
+        .pp {
+            width: 90%; /* Adjust text width for mobile */
+            padding-left: 0; /* Remove left padding for mobile */
+            text-align: center; /* Center-align text for mobile */
+            margin-top: 20px; /* Add margin for better spacing */
+        }
+
+        .btn {
+            padding: 10px 30px; /* Adjust button padding for mobile */
+            font-size: 12px; /* Reduce font size for mobile */
+        }
+    }
+</style>
+
+<body>
+    <div class="background-container">
+        <!-- Background Image -->
+        <img src="{% static 'images/back.jpg' %}" alt="Background" class="background-image">
+
+        <!-- Overlay Image -->
+        <img src="{% static 'images/logop.png' %}" alt="Overlay" class="overlay-image">
+    </div>
+</body>
+
       
      
 
 
-      <section class="pp" >
-       
-            <div class="p" >
-              <p style="align-items: baseline;">Experience the art of thoughtful gifting at PHL. Whether for a special occasion or a spontaneous gesture, our curated collection of elegant gift wraps and custom-designed boxes make every gift extraordinary. Elevate your gift-giving with us, and let every present be a memorable</p>
-            </div>
-        </body>
-      </section>
-    </head>
 {% comment %} ---------------------------------------------------------------------------------------------- {% endcomment %}
-    <body class="product-3">
-        <style>
-          .product3 {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-          }
-    
-          h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-          }
-    
-          .container-product3 {
+<style>
+  .product3 {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+  }
+
+  h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+  }
+
+  .container-product3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 30px 0;
+  }
+
+  .category {
+      position: relative;
+      margin: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      scroll-snap-align: center;
+      flex: 0 0 auto; /* Prevent flex items from shrinking */
+      width: 300px; /* Fixed width for desktop view */
+  }
+
+  .category img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .category:hover img {
+      transform: scale(1.3); /* Zoom in effect on hover */
+  }
+
+  .category .info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(2, 2, 2, 0.6);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .category:hover .info {
+      transform: translateY(0); /* Move the text into the image on hover */
+  }
+
+  .category a {
+      text-decoration: none;
+      color: white;
+  }
+
+  .category a:hover {
+      color: #ffcc00; /* Optional hover effect for link */
+  }
+
+  /* Media Query for Mobile Devices */
+  @media only screen and (max-width: 768px) {
+      .container-product3 {
+          flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+          justify-content: space-between; /* Space items evenly */
+          padding: 15px 10px; /* Add padding for better spacing */
+          overflow-x: hidden; /* Disable horizontal scrolling */
+      }
+
+      .category {
+          width: calc(50% - 20px); /* Set width for two items per row */
+          margin: 10px; /* Add margin for spacing */
+          scroll-snap-align: none; /* Disable scroll snapping on mobile */
+      }
+
+      .category img {
+          height: 200px; /* Reduce image height for mobile */
+      }
+
+      .category .info {
+          font-size: 14px; /* Reduce font size for mobile */
+          padding: 10px; /* Reduce padding for mobile */
+      }
+
+      h1 {
+          font-size: 24px; /* Reduce heading size for mobile */
+      }
+  }
+</style>
+
+<body class="product-3">
+  <h1>Shop by Soft Furnishing Categories</h1>
+  <div class="container-product3">
+      <div class="category">
+        <a href="add2">
+          <img src="{% static 'images/tealigth.webp' %}" alt="Bath">
+          <div class="info"><a href="/add2">Light's</a></div>
+        </a>
+      </div>
+      <div class="category">
+        <a href="add2">
+          <img src="{% static 'images/keychain.jpg' %}" alt="Cushion Covers">
+          <div class="info"><a href="/add2">Keychain's</a></div>
+        </a>
+      </div>
+      <div class="category">
+        <a href="add2">
+          <img src="{% static 'images/diya.jpg' %}" alt="Bedding">
+          <div class="info"><a href="/add2">Diya</a></div>
+        </a>
+      </div>
+      <div class="category">
+        <a href="add2">
+          <img src="{% static 'images/tray.webp' %}" alt="Curtains">
+          <div class="info"><a href="/add2">Tray's</a></div>
+        </a>
+      </div>
+  </div>
+</body>
+
+
+{% comment %} product {% endcomment %}
+
+
+
+<style>
+ 
+
+    /* Product Grid for Desktop */
+    .product-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-evenly;
+        max-width: 1500px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    /* Scrollable Product List for Mobile */
+    @media (max-width: 480px) {
+      .custom-card a {
+        
+        width: 50%;
+        height:50%;
+    }
+        .product-grid {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 30px 0px;
-          }
+            flex-wrap: nowrap; /* Prevent wrapping */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-snap-type: x mandatory; /* Snap scrolling */
+            gap: 10px;
+            padding: 10px;
+            margin: 10px auto;
+        }
+
+        .custom-card {
+            flex: 0 0 auto; /* Prevent flex shrinking */
+            width: 150px; /* Smaller width for mobile */
+            scroll-snap-align: start; /* Snap to start of each card */
+        }
+
+        .custom-image img {
+            width: 100%; /* Ensure image fits the card */
+            height: auto;
+        }
+    }
+
+    /* Product Card */
+    .custom-card {
+        width: 250px; /* Smaller card size */
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        cursor: pointer; /* Make the card clickable */
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image Section */
+    .custom-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .custom-image img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .custom-card:hover .custom-image img {
+        transform: scale(1.1); /* Slightly scale up on hover */
+    }
+
+    /* Product Info Section */
+    .custom-info {
+        padding: 10px;
+        text-align: center;
+        background: #fdfdfd;
+    }
+
+    .custom-info h3 {
+        font-size: 16px; /* Smaller font size */
+        font-weight: bold;
+        margin: 10px 0 5px;
+    }
+
+    .custom-info p {
+        font-size: 12px; /* Smaller font size */
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .custom-info .custom-price {
+        font-size: 14px; /* Smaller font size */
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Make the entire card clickable */
+    .custom-card a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+<div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="custom-card" onclick="location.href='{% url 'product_detail' product_id=17 %}'">
+        <a href="{% url 'product_detail' product_id=17 %}">
+            <div class="custom-image">
+                <img src="{% static 'images/RusticEarthenBrewCoffeeMug.webp' %}" alt="Product Image">
+            </div>
+            <div class="custom-info">
+                <h3>Coffee Mug</h3>
+                <p>Primary Collection</p>
+                <span class="custom-price">₹1,499.00</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div class="custom-card" onclick="location.href='{% url 'product_detail' product_id=18 %}'">
+        <a href="{% url 'product_detail' product_id=18 %}">
+            <div class="custom-image">
+                <img src="{% static 'images/mirror.webp' %}" alt="Product Image">
+            </div>
+            <div class="custom-info">
+                <h3>Mirror</h3>
+                <p>Primary Collection</p>
+                <span class="custom-price">₹1,199.00</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="custom-card" onclick="location.href='{% url 'product_detail' product_id=16 %}'">
+        <a href="{% url 'product_detail' product_id=16 %}">
+            <div class="custom-image">
+                <img src="{% static 'images/gajra.jpg' %}" alt="Product Image">
+            </div>
+            <div class="custom-info">
+                <h3>Lotus With Gajra</h3>
+                <p>Sketch Book</p>
+                <span class="custom-price">₹799.00</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div class="custom-card" onclick="location.href='{% url 'product_detail' product_id=15 %}'">
+        <a href="{% url 'product_detail' product_id=15 %}">
+            <div class="custom-image">
+                <img src="{% static 'images/12.webp' %}" alt="Product Image">
+            </div>
+            <div class="custom-info">
+                <h3>Decor With Home</h3>
+                <p>Sketch Book</p>
+                <span class="custom-price">₹799.00</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Product Card 5 -->
+    <div class="custom-card" onclick="location.href='{% url 'product_detail' product_id=9 %}'">
+        <a href="{% url 'product_detail' product_id=9 %}">
+            <div class="custom-image">
+                <img src="{% static 'images/golden-lord-ganesha.jpg' %}" alt="Product Image">
+            </div>
+            <div class="custom-info">
+                <h3>Golden-Lord-Ganesha</h3>
+                <p>New Collection</p>
+                <span class="custom-price">₹1,999.00</span>
+            </div>
+        </a>
+    </div>
+
     
-          .category {
+</div>
+</body>
+
+
+
+{% comment %} --------------------------------------------------------------- {% endcomment %}
+<style>
+    .phototext {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+        }
+
+        .phototext-container {
             position: relative;
-          
-            margin: 10px;
-            border-radius: 8px;
-            overflow: hidden;
+            width: 100%; /* Fixed width for desktop */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            scroll-snap-align: center;
-          }
-    
-          .category img {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .phototext-container img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
             display: block;
-            transition: transform 0.3s ease-in-out;
-          }
-    
-          .category:hover img {
-            transform: scale(1.3); /* Zoom in effect on hover */
-          }
-    
-          .category .info {
+        }
+
+        .overlay-text {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(2, 2, 2, 0.6);
-            color:black;
-            font-size: 18px;
+            top: 35%;
+            left: 26%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 90px;
             font-weight: bold;
-            padding: 15px;
+            background-color: rgba(0, 0, 0, 0); /* Background for readability */
+            padding: 10px 20px;
+            border-radius: 5px;
             text-align: center;
-            transform: translateY(100%);
-            transition: transform 0.3s ease-in-out;
-          }
-    
-          .category:hover .info {
-            transform: translateY(0); /* Move the text into the image on hover */
-          }
-    
-          .category a {
-            text-decoration: none;
-            color:white;
-          }
-    
-          .category a:hover {
-            color: #ffcc00; /* Optional hover effect for link */
-            
-          }
-        </style>
-      </head>
-      <body class="product-3">
-        <h1>Shop by Soft Furnishing Categories</h1>
-        <div class="container-product3">
-          <div class="category">
-            <img src="{% static 'images/3dimage.png' %}" alt="Bath">
-            <div class="info"><a href="/add2">Bath</a></div>
-          </div>
-          <div class="category">
-            <img src="{% static 'images/3dimage.png' %}" alt="Cushion Covers">
-            <div class="info"><a href="/add2">Cushion Covers</a></div>
-          </div>
-          <div class="category">
-            <img src="{% static 'images/3dimage.png' %}" alt="Bedding">
-            <div class="info"><a href="/add2">Bedding</a></div>
-          </div>
-          <div class="category">
-            <img src="{% static 'images/3dimage.png' %}" alt="Curtains">
-            <div class="info"><a href="/add2">Curtains</a></div>
-          </div>
-        </div>
-      </body>
-    </body>
-    
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
 
-
-    <body>
-        <style>
-          .phototext{
-              font-family: Arial, sans-serif;
-              margin: 0;
-              padding: 0;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              background-color: #f4f4f4;
-          }
-          .phototext-container{
-              position: relative;
-              width: 800;
-              
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-              border-radius: 10px;
-              overflow: hidden;
-          }
-          .phototext-containerimg {
-              width: 100%;
-              display: block;
-          }
-          .overlay-text {
-              position: absolute;
-              top: 35%;
-              left: 26%;
-              transform: translate(-50%, -50%);
-              color: white;
-              font-size: 90px;
-              font-weight: bold;
-              background-color: rgba(0, 0, 0, 0); /* Background for readability */
-              padding: 10px 20px;
-              border-radius: 5px;
-              text-align: center;
-              font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          }
-          .overlay-text2 {
+        .overlay-text2 {
             position: absolute;
             top: 45%;
             left: 26%;
@@ -254,438 +499,377 @@
             border-radius: 5px;
             text-align: center;
         }
-          .overlay-button {
-              position: absolute;
-              
-              top: 350px;
-              left: 25%;
-              transform: translate(-50%, 0);
-              background-color:rgba(30, 30, 34, 0);
-              color: white;
-              border: none;
-              padding: 10px 30px;
-              font-size: 16px;
-              border-radius: 100px;
-              cursor: pointer;
-              transition: background-color 0.3s ease;
-          }
-          .overlay-button:hover {
-              background-color:rgb(205, 206, 207);
-              color: black;
-          }
-        </style>
-        </head>
-        <body class="phototext">
-        <div class="phototext-container">
-          <img src="{% static 'images/full.jpg' %}" alt="Decor">
-          <div class="overlay-text">DECOR</div>
-          <div class="overlay-text2">you home with us</div>
-          {% comment %} <button class="overlay-button">Checkout</button> {% endcomment %}
-        </div>
-        </body>
-      </body>
-      
+
+        .overlay-button {
+            position: absolute;
+            top: 350px;
+            left: 25%;
+            transform: translate(-50%, 0);
+            background-color: rgba(30, 30, 34, 0);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .overlay-button:hover {
+            background-color: rgb(205, 206, 207);
+            color: black;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media only screen and (max-width: 768px) {
+            .phototext-container {
+                width: 100%; /* Full width for mobile */
+                border-radius: 0; /* Remove border radius for full-width effect */
+            }
+
+            .overlay-text {
+                font-size: 50px; /* Reduce font size for mobile */
+                top: 30%; /* Adjust position for mobile */
+                left: 50%; /* Center text horizontally */
+            }
+
+            .overlay-text2 {
+                font-size: 18px; /* Reduce font size for mobile */
+                top: 40%; /* Adjust position for mobile */
+                left: 50%; /* Center text horizontally */
+            }
+
+            .overlay-button {
+                top: 300px; /* Adjust button position for mobile */
+                left: 50%; /* Center button horizontally */
+                font-size: 14px; /* Reduce font size for mobile */
+                padding: 8px 20px; /* Adjust padding for mobile */
+            }
+        }
+</style>
+
+<body class="phototext">
+  <div class="phototext-container">
+    <a href="add1">
+      <img src="{% static 'images/dp.jpg' %}" alt="Decor">
+      {% comment %} <div class="overlay-text">DECOR</div>
+      <div class="overlay-text2">your home with us</div> {% endcomment %}
+      {% comment %} <button class="overlay-button">Checkout</button> {% endcomment %}
+    </a>
+  </div>
+</body>
       
    
    {% comment %} bestseller {% endcomment %}
    
-      <section class="bestsellers">
-        <body>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-          }
-          .product-container {
-            display:contents;
-            gap: 40px;
-            padding: 40px;
-          }
-          .product {
-            border: 1px solid #ddd;
-            padding: 20px;
-            text-align: left;
-            border-radius: 10px;
-            cursor: pointer;
-          }
-          .product button {
-          
-            cursor: pointer;
-            
-          }
-          .cart-sidebar,.cart-sidebar2,.cart-sidebar3,.cart-sidebar4 {
-            position: fixed;
-            top: 0;
-            left: -400px;
-            width: 400px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-            transition: 0.3s;
-            z-index: 1000;
-          }
-          .cart-header,.cart-header2 ,.cart-header3 ,.cart-header4{
-            padding: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            background-color:rgb(16, 16, 16);
-            color: #fff;
-            border-bottom: 1px solid #ddd;
-          }
-          .cart-content {
-            padding: 20px;
-        
-            
-          }
-          .checkout-button {
-            width: 100%;
-            padding: 10px;
-            background-color: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-          }
-  
-  
-          .overlay, .overlay2 ,.overlay3 ,.overlay4{
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70%;
-            background-color: rgba(86, 72, 72, 0.5);
-            z-index: 999;
-          }
-  
-          .imgesitem{
-            padding: auto;
-            height: 1px;
-            width: 20%;
-          }
-  
-          .cart-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-          }
-  
-          .product-details {
-            flex: 1;
-            width: 350px;
-          }
-  
-          .product-image-slider {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            margin-right: 10px;
-            cursor: pointer;
-          }
-  
-          .btn{
-            background-color:white;
-            color: black;
-            border: 0;
-            padding: 10px 70px;
-            cursor: pointer;
-            transition: background-color 0.7s ease;
-            font-size: 14px;
-            border-radius: 10px;
-            }
-  
-          .check{
-            background-color: #fff;
-            border: 0;
-            border-radius: 10px;
-            padding: 10px 60px;
-            padding-bottom: 10px;
-            
-            
-            transition: background-color 0.7s ease;
-  
-          }
-          .data p{
-            top: 60px;
-            color: #555;
-  
-  
-          }
-          .close-btn-B{
-            background-color:rgb(0, 0, 0);
-            padding: 10px;
-            color: #f4f4f4;
-            border: 0;
-            font-size: 30px;
-          }
-          
-          
-        </style>
-  
-          <div class="bestsellers-left">
-              <h2>Shop our bestsellers</h2>
-              <button class="shop-now" onclick="location.href='./add2'">Shop Now</button>
-          </div>
-          
-          <div class="bestsellers-right">
-              <div class="product-carousel">
-            
-  
-  
-  
-                  <div class="product-card">
-                      <img src="{% static 'images/gift3.png' %}" alt="Product 1" style="cursor: pointer;">
-                      <p class="product-name">Black & Gold Palm Print</p>
-                      <p class="product-price">₹ 2,999</p>
-                      
-                      <button class="check" onclick="location.href='{% url 'product_detail' product_id=2 %}'">Checkout</button> 
-  
-                    
-                  </div>
-                  
-  
-  
-                  <div class="product-card">
-                      <img src="{%static 'images/pots.png'%}" alt="Product 2">
-                      
-                      <p class="product-name">Dark Green Glazed Ceramic</p>
-                      <p class="product-price">₹ 2,199</p>
-                      {% comment %} <button class="btn" onclick="openCart2()">checkout</button> {% endcomment %}
-                      <button class="check" onclick="location.href='{% url 'product_detail' product_id=1 %}'">checkout</button>  
-  
-                  </div>
-  
-  
-                  <div class="product-card">
-                      <img src="{% static 'images/wallart.png'%}" alt="Product 3">
-                      
-                      <p class="product-name">Amber & Gold Glass Hammered</p>
-                      <p class="product-price">₹ 4,199</p>
-                      {% comment %} <button class="btn" onclick="openCart3()">checkout</button> {% endcomment %}
-                      <button class="check" onclick="location.href='{% url 'product_detail' product_id=3 %}'">checkout</button> 
-  
-                  </div>
-                 
-  
-  
-                  <div class="product-card">
-                    
-                      <img src="{% static 'images/pendanttligth.png'%}" alt="Product 4">
-                      
-                      <p class="product-name">Amber & Gold Tall Hammered</p>
-                      <p class="product-price">₹ 4,499</p>
-                      {% comment %} <button class="btn" onclick="openCart4()">checkout</button> {% endcomment %}
-                      <button class="check" onclick="location.href='{% url 'product_detail' product_id=4 %}'">checkout
-                      </button> 
-  
-                  </div>
-                 
-                </body>
-  
-  
-                  
-              </div>
-          </div>
-          
-  
-  </section>
-
-
-
-
+   <section class="bestsellers">
     <style>
-        main {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f3f0;
-            color: #333;
+    
+  
+      .bestsellers {
+          padding: 40px;
+          font-family: Arial, sans-serif;
+          background: #fef8eb;
+      }
+  
+      .bestsellers-left {
+          margin-bottom: 20px;
+      }
+  
+      .bestsellers-left h2 {
+          font-size: 2em;
+          margin-bottom: 10px;
+      }
+  
+      .shop-now ,.shop-now-laptop{
+          padding: 10px 20px;
+          background-color:rgb(0, 0, 0);
+          color: wheat;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: 0.3s;
+      }
+  
+      .shop-now:hover {
+          background-color:rgba(196, 169, 155, 0);
+          color: #000;
+      }
+  
+      .bestsellers-right {
+          width: 100%;
+      }
+  
+      .product-carousel {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 15px;
+          padding-top: 20px;
+      }
+  
+      .product-card {
+          flex: 0 0 20%;
+          background: white;
+          padding: 15px;
+          border-radius: 10px;
+          text-align: center;
+          scroll-snap-align: start;
+      }
+  
+      .product-card img {
+          width: 100%;
+          height: auto;
+          border-radius: 5px;
+      }
+  
+      .product-name {
+          font-size: 1em;
+          margin: 10px 0;
+      }
+  
+      .product-price {
+          color: black;
+          font-size: 1.1em;
+          font-weight: bold;
+      }
+  
+      .check {
+        
+          background-color:#000;
+          color:#ddd;
+          border: none;
+          padding: 10px 70px;
+          border-radius: px;
+          cursor: pointer;
+  
+      }
+  
+      @media (min-width: 768px) {
+        .bestsellers-right h2, {
+          display: none;
+      }
+          
+  
+        .shop-now-laptop {
+            font-size: 1em;
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            display: none;
+            width: fit-content;
         }
-
-        .header {
-            text-align: center;
-            padding: 20px;
-            margin: 20px;
-        }
-
-        .header h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-
-        .header nav {
-            margin-top: 10px;
-        }
-
-        .header nav button {
-            background-color:white;
-            color: black;
-            border: none;
-            padding: 10px 15px;
-            margin:  5px;
-            cursor: pointer;
-            border-radius: 20px;
-        }
-
-        .header nav button:hover {
-            background-color: black;
-            color: aliceblue;
-            transition: background-color 0.9s;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-        }
-
-        .image-section {
-            flex: 1;
-            max-width: 400px;
-            margin-right: 20px;
-        }
-
-        .image-section img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .categories {
-            flex: 2;
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .category {
-            text-align: center;
-            padding: 15px;
-            background: #fff;
-            border: 0px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .category:hover {
-            transform: scale(1.05);
-            
-
-        }
-
-        .category img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-      
+        .bestsellers-right h2 {
+          
+          display:none;
+          
+      }
+          
+      }
+  
+      @media (max-width: 768px) {
+          .bestsellers-left {
+              display: none;
+          }
+          
+          .bestsellers-right h2 {
+              font-size: 1.8em;
+              text-align: left;
+              margin-bottom: 10px;
+  
+          }
+  
+          .shop-now-laptop{
+              font-size: 1em;
+              padding: 8px 15px;
+              margin-bottom: 20px;
+              display: block;
+              width: fit-content;
+          }
+  
+          .product-carousel {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              gap: 15px;
+          }
+  
+          .product-card {
+              flex: 0 0 70%;
+              padding: 15px;
+          }
+      }
     </style>
-</head>
-<body class="main">
-    <div class="header">
-        <h1>A Perfect Gift for Every Occasion</h1>
-        {% comment %} <nav>
-            <button>Occasion</button>
-            <button>Recipient</button>
-            <button>Price</button>
-        </nav> {% endcomment %}
+  
+    <div class="bestsellers-left">
+        <h2>Bestsellers Offer's</h2>
+        <button class="shop-now" onclick="location.href='./add2'">CheckNow</button>
     </div>
+  
+    <div class="bestsellers-right">
+      <h2>Bestsellers Offer's</h2>
+      <button class="shop-now-laptop" onclick="location.href='./add2'">CheckNow</button>
+  
+      <div class="product-carousel">
+          <div class="product-card">
+            <a href="{% url 'product_detail' product_id=17 %}">
+              <img src="{% static 'images/RusticEarthenBrewCoffeeMug.webp' %}" alt="Black & Gold Palm Print">
+            </a>
 
-    <div class="container">
-        <div class="image-section">
-            <img src="{% static 'images/3man.jpg' %}" alt="Gift Banner">
-        </div>
+              <p class="product-name">Coffee Mug</p>
+              <p class="product-price">₹ 150</p>
+              <button class="check" onclick="location.href='{% url 'product_detail' product_id=17 %}'">Checkout</button>
+          </div>
+  
+          <div class="product-card">
+            <a href="{% url 'product_detail' product_id=19 %}">
+              <img src="{% static 'images/tray.webp' %}" alt="Dark Green Glazed Ceramic">
+            </a>
 
-        <div class="categories">
-            <div class="category">
-                <img src="{% static 'images/logo.png' %}" alt="Anniversary">
-                <p>Anniversary</p>
-            </div>
-            <div class="category">
-                <img src="{% static 'images/gramo.webp' %}" alt="Birthday">
-                <p>Birthday</p>
-            </div>
-            <div class="category">
-                <img src="{% static 'images/red.webp' %}" alt="House Warming">
-                <p>House Warming</p>
-            </div>
-            <div class="category">
-                <img src="{% static 'images/ayralic.png' %}" alt="Wedding">
-                <p>Wedding</p>
-            </div>
-        </div>
+              <p class="product-name">Serving Tray</p>
+              <p class="product-price">₹499 </p>
+              <button class="check" onclick="location.href='{% url 'product_detail' product_id=19 %}'">Checkout</button>
+          </div>
+  
+          <div class="product-card">
+            <a href="{% url 'product_detail' product_id=20 %}">
+              <img src="{% static 'images/keychain.jpg' %}" alt="Amber & Gold Glass Hammered">
+            </a>
+
+              <p class="product-name">Key chain</p>
+              <p class="product-price">₹ 599</p>
+              <button class="check" onclick="location.href='{% url 'product_detail' product_id=20 %}'">Checkout</button>
+          </div>
+          <div class="product-card">
+            <a href="{% url 'product_detail' product_id=21 %}">
+              <img src="{% static 'images/tealigth.webp' %}" alt="Amber & Gold Tall Hammered">
+            </a>
+
+              <p class="product-name">Tealight</p>
+              <p class="product-price">₹ 599</p>
+              <button class="check" onclick="location.href='{% url 'product_detail' product_id=21 %}'">Checkout</button>
+          </div>
+      </div>
     </div>
-</body>
-
+  </section>
+  
 
 
 
 <style>
-    .imgtext {
+  /* Global Styles */
+  .imgtext {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #fdfdfd;
       color: #333;
-    }
-    .container-imgtext{
+  }
+
+  .container-imgtext {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 50px;
       max-width: 1200px;
       margin: 0 auto;
-    }
-    .text-content {
+  }
+
+  .text-content {
       max-width: 50%;
-    }
-    .text-content h1 {
+  }
+
+  .text-content h1 {
       font-size: 3em;
       margin-bottom: 20px;
       color: #000;
-    }
-    .text-content p {
+  }
+
+  .text-content p {
       font-size: 1.2em;
       line-height: 1.8;
       color: #555;
-    }
-    .image-content {
-      max-width: 40%;
-    }
-    .image-content img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
-    
-    
-  </style>
-</head>
-<body class="imgtext">
-  <div class="container-imgtext">
-    <div class="text-content">
-      <h1>PACKED with love</h1>
-      <p>
-        Unwrap a world of artistry from hastkala + Living. Thoughtfully crafted and wrapped with love, our handpicked curation of gifts from home decor, hand-crafted leather accessories to gleaming barware, and the prettiest photo frames, makes the process easy and memorable.
-      </p>
-      <p style="text-align: right;">
-        - Hastakal
-      </p>
-    </div>
-    <div class="image-content">
-      <img src="{% static "images/giftbox.jpg" %}" alt="Gift Box">
-    </div>
-  </div>
-  
-</body>
+  }
 
+  .image-content {
+      max-width: 40%;
+  }
+
+  .image-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+  }
+
+  /* Signature Text */
+  .signature {
+      text-align: right;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: brown;
+      font-size: 30px;
+      margin-top: 20px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+      .container-imgtext {
+          flex-direction: column; /* Stack text and image vertically */
+          padding: 20px;
+      }
+
+      .text-content {
+          max-width: 100%; /* Full width on mobile */
+          text-align: center; /* Center align text */
+      }
+
+      .text-content h1 {
+          font-size: 2em; /* Smaller font size for mobile */
+      }
+
+      .text-content p {
+          font-size: 1em; /* Smaller font size for mobile */
+      }
+
+      .image-content {
+          max-width: 100%; /* Full width on mobile */
+          margin-top: 20px; /* Add spacing between text and image */
+      }
+
+      .signature {
+          text-align: center; /* Center align signature */
+          font-size: 24px; /* Smaller font size for mobile */
+      }
+  }
+
+  @media (max-width: 480px) {
+      .text-content h1 {
+          font-size: 1.8em; /* Even smaller font size for very small screens */
+      }
+
+      .text-content p {
+          font-size: 0.9em; /* Even smaller font size for very small screens */
+      }
+
+      .signature {
+          font-size: 20px; /* Even smaller font size for very small screens */
+      }
+  }
+</style>
+
+<body class="imgtext">
+<div class="container-imgtext">
+<div class="text-content">
+    <h1>"Handcrafted Elegance with a Touch of Nature"</h1>
+    <p>
+      At Hastkala, we take pride in creating exquisite handmade decor pieces that reflect tradition, artistry, and passion. Each product is carefully crafted by hand, using natural elements and intricate detailing to bring out its unique charm. From elegant designs to rich colors, our collection embodies the beauty of handmade craftsmanship.
+        <p class="signature">
+        - Hastakal
+    </p>
+</div>
+<div class="image-content">
+    <img src="{% static 'images/ele.jpg' %}" alt="Gift Box">
+</div>
+</div>
+</body>
 
 
     

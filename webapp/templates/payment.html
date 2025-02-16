@@ -1,52 +1,165 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    /* Navbar Container */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        background-color: white;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .navbar h1 {
-        font-size: 40px;
-        font-weight: bold;
-        color:darkslategrey;
-        padding-left: 43%;
-        
-    }
-
-    .navbar h1 span {
-        font-size: 14px;
-        padding-left: 12px;
-        font-weight: normal;
-        display: block;
-        color:#000;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Three Dots Menu</title>
+    <style>
 
 
-  
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-   
-</style>
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 30px;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: gray;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            padding-right: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Underline Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: black;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Three Dots Menu */
+        .menu-dots {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-dots {
+                display: block;
+                padding-right: 30px;
+            }
+        }
+    </style>
+</head>
 <body>
-<!-- Top Banner -->
 
-<!-- Navbar -->
-<div class="navbar">
-    <!-- Logo and Heading -->
-     <h1>
-        Hastkala
-        <span>Homes Made Beautiful</span>
-    </h1> 
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Hastkala</h1>
+            <p>Handmade Decor Items</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="/cart">view card</a>
+            <a href="/about">About</a>
+            <a href="/contactnav">Contact</a>
+        </div>
+        <div class="menu-dots" onclick="toggleMenu()">&#8942;</div>
+        <div class="dropdown" id="dropdown">
+            <a href="#">Home</a>
+          
+            <a href="about">About</a>
+            <a href="contactnav">Contact</a>
+        </div>
+    </nav>
 
-    </div>
-</div>
+    <script>
+        function toggleMenu() {
+            var dropdown = document.getElementById("dropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdown");
+            var menuDots = document.querySelector(".menu-dots");
+
+            if (!menuDots.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+
 </body>
-
-
 
 
 
@@ -209,7 +322,6 @@
          
              <a href="{% url 'generate_qr' product.id %}" class="btn btn-primary">pay {{ total_price }}</a>
          
-
         </form>
     
     </div>
@@ -217,304 +329,303 @@
 
 {% comment %} --------------------------------------------------fotter-------------------- {% endcomment %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
-<body>
   
-  <footer class="footer">
-   <style>
- 
-     .footer {
-       padding-top: 10px;
-       background-color:rgb(130, 130, 129); /* Matching color */
-       color: #fff;
-       padding: 40px;
-       display: flex;
-       flex-wrap: wrap;
-       justify-content: space-between;
-       font-family: Arial, sans-serif;
-     }
-     .footer-section {
-       flex: 1 1 200px;
-       margin: 10px;
-     }
-     .footer-section h3 {
-       font-size: 18px;
-       margin-bottom: 10px;
-       text-transform: uppercase;
-     }
-     .footer-section ul {
-       list-style: none;
-       padding: 0;
-     }
-     .footer-section ul li {
-       margin: 5px 0;
-     }
-     .footer-section ul li a {
-       color: #fff;
-       text-decoration: none;
-     }
-     .footer-section ul li a:hover {
-       text-decoration: underline;
-     }
-     .footer-section .social-media img {
-       width: 24px;
-       margin: 5px;
-     }
-     .newsletter input[type="email"] {
-       padding: 10px;
-       width: calc(100% - 90px);
-       margin-right: 10px;
-     }
-     .newsletter button {
-       padding: 10px;
-       background-color: #333;
-       color: #fff;
-       border: none;
-       cursor: pointer;
-     }
-     .newsletter button:hover {
-       background-color: #555;
-     }
-     .copyright {
-       text-align: center;
-       margin-top: 20px;
-       font-size: 14px;
-     }
- 
-     .social-icons {
-       text-align: left;
-       padding: 20px;
-       }
-       
-       .social-icons a {
-           display: inline-block;
-           margin: 0 10px;
-           font-size: 24px;
-           color: #333;
-           transition: color 0.3s;
-       }
-       
-       .social-icons a:hover {
-           color: #007bff; /* Change color on hover */
-       }
-       /* Comment Section */
-       .comments textarea {
-         width: 100%;
-         height: 80px;
-         padding: 10px;
-         margin-bottom: 10px;
-         border-radius: 5px;
-         border: 1px solid #ccc;
-     }
-     .comments button {
-         padding: 10px;
-         background-color: #333;
-         color: white;
-         border: none;
-         cursor: pointer;
-     }
-     .comments button:hover {
-         background-color: #555;
-     }
-     .comment-item {
-         background:white;
-         color: black;
-         padding: 7px;
-         border-radius: 5px;
-         margin-top: 10px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-     }
-     .like-btn {
-         background: none;
-         border: none;
-         color: red;
-         cursor: pointer;
-     }
-       
-     
-   </style>
- 
-   <footer>
-       <div class="social-icons">
-          
-           
-       </div>
-   </footer>
-   
-   <div class="footer-section">
-           <h3>Online Shop</h3>
-           <ul>
-             <li><a href="add1">walls decor</a></li>
-             <li><a href="add1">rooms frams</a></li>
-             <li><a href="add2">wall frameset</a></li>
-             <li><a href="add2">Ready Made Curtains</a></li>
-             <li><a href="add1">Cushions</a></li>
-             <li><a href="add2">Gifting</a></li>
-             <li><a href="4">Home Decor Accessories</a></li>
-             <li><a href="4">paint product</a></li>
-           </ul>
-         </div>
-         <div class="footer-section">
-           <h3>Discover</h3>
-           <ul>
-             <li><a href="#">Curtains</a></li>
-             <li><a href="#">Upholstery</a></li>
-             <li><a href="#">Bed & Bath</a></li>
-             <li><a href="#">Blinds</a></li>
-         
-           </ul>
-         </div>
-         <div class="footer-section">
-           <h3>New Introductions</h3>
-           <ul>
-             <li><a href="#">Viroguard by D'Decor</a></li>
-           </ul>
-         </div>
-         <div class="footer-section">
-           <h3>Corporate</h3>
-           <ul>
-             <li><a href="about">About Us</a></li>
-         
-             {% comment %} <li><a href="#">Store Locator</a></li> {% endcomment %}
-             <li><a href="#">Media</a></li>
-             <li><a href="#">Follow us on instagram</a></li>
-             {% comment %} <li><a href="#">Careers</a></li> {% endcomment %}
-         
-           </ul>
-         </div>
-         <div class="footer-section">
-           <h3>Customer Service</h3>
-           <ul>
-             <li><a href="#">FAQs</a></li>
-             <li><a href="#">Exchange Policy</a></li>
-             <li><a href="#">Store Locator</a></li>
-             <li><a href="#">Track My Order</a></li>
-             <li><a href="#">Privacy Policy</a></li>
-         
-           </ul>
-         </div>
-         <div class="footer-section">
-           <h3>Get in Touch</h3>
-           <ul>
-             <li><a href="#">Live Chat</a></li>
-             <li><a href="#">WhatsApp Chat</a></li>
-             <li><a href="#">Leave Us Feedback</a></li>
-             <li><a href="#">Request an Appointment</a></li>
-           </ul>
-           <p>Call Us: <a href="8770128264">877012826</a></p>
-         </div>
-         <div class="footer-section">
-           <h3>Follow Us</h3>
-           <ul class="social-media">
-               <div class="social-icons">
-                   <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
-                   </div>
- 
- 
-             <div class="social-icons">
-             <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"> <i class="fab fa-instagram"></i></a>instagram
-             </div>
- 
- 
-             <div class="social-icons">
-               <a hreef="https://www.linkedin.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>LinkedIn
-               </div>
-             
-               
- 
-             <div class="social-icons">
-               <a hreef="https://www.whatsapp.com/in/yourprofile" target="_blank"> <i class="fab fa-linkedin-in"></i></a>whats
-               </div>
-           
-             
-           </ul>
-         </div>
- 
- 
-         <div class="footer-section comments">
-           <h3>Leave a Comment</h3>
-           <form id="commentForm">
-               <textarea id="commentInput" placeholder="Write your comment here..." required></textarea>
-               <button type="submit">Post Comment</button>
-           </form>
-           <div id="commentsList">
-               <!-- Comments will be displayed here -->
-           </div>
-           <button id="viewAllBtn" style="display:none; background:#555; color:white; padding:5px 10px; border:none; cursor:pointer;">View All Comments</button>
-       </div>
-   </div>
- 
- 
- </footer> 
-  <footer style="background-color: white;">
- <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
- <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
- </footer>
- 
- 
-  <!-- JavaScript to handle comments with Local Storage -->
- <script>
-   let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load saved comments
- 
-   document.getElementById("commentForm").addEventListener("submit", function(event) {
-       event.preventDefault();
-       let commentText = document.getElementById("commentInput").value;
- 
-       if (commentText.trim() !== "") {
-           comments.unshift({ text: commentText, likes: 0 }); // Add new comment at the beginning
-           localStorage.setItem("comments", JSON.stringify(comments)); // Save to Local Storage
- 
-           updateCommentsDisplay();
-           document.getElementById("commentInput").value = "";
-       }
-   });
- 
-   function updateCommentsDisplay(showAll = false) {
-       let commentSection = document.getElementById("commentsList");
-       commentSection.innerHTML = "";
- 
-       let displayedComments = showAll ? comments : comments.slice(0, 4); // Show last 4 by default
- 
-       displayedComments.forEach((comment, index) => {
-           let commentDiv = document.createElement("div");
-           commentDiv.classList.add("comment-item");
- 
-           let textSpan = document.createElement("span");
-           textSpan.textContent = comment.text;
- 
-           let likeButton = document.createElement("button");
-           likeButton.classList.add("like-btn");
-           likeButton.innerHTML = `❤️ ${comment.likes}`;
-           likeButton.addEventListener("click", function() {
-               comment.likes++;
-               likeButton.innerHTML = `❤️ ${comment.likes}`;
-               localStorage.setItem("comments", JSON.stringify(comments)); // Save likes in Local Storage
-           });
- 
-           commentDiv.appendChild(textSpan);
-           commentDiv.appendChild(likeButton);
-           commentSection.appendChild(commentDiv);
-       });
- 
-       // Show or hide "View All Comments" button
-       let viewAllBtn = document.getElementById("viewAllBtn");
-       if (comments.length > 4) {
-           viewAllBtn.style.display = "block";
-           viewAllBtn.onclick = function () {
-               updateCommentsDisplay(true);
-               viewAllBtn.style.display = "none"; // Hide button after viewing all
-           };
-       } else {
-           viewAllBtn.style.display = "none";
-       }
-   }
- 
-   // Load comments when page loads
-   updateCommentsDisplay();
- </script>
- 
- 
- </body>
+  
+<style>
+  /* General Footer Styles */
+  .footer {
+    padding-top: 10px;
+    background-color: rgb(130, 130, 129);
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+  }
+  .footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 5px 0;
+  }
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+  .footer-section .social-media img {
+    width: 24px;
+    margin: 5px;
+  }
+  .newsletter input[type="email"] {
+    padding: 10px;
+    width: calc(100% - 90px);
+    margin-right: 10px;
+  }
+  .newsletter button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .newsletter button:hover {
+    background-color: #555;
+  }
+  .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .social-icons {
+    text-align: left;
+    padding: 20px;
+  }
+  .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  .social-icons a:hover {
+    color: #007bff;
+  }
+  .comments textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .comments button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .comments button:hover {
+    background-color: #555;
+  }
+  .comment-item {
+    background: white;
+    color: black;
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .like-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-section {
+      flex: 1 1 100%;
+      margin: 10px 0;
+    }
+    .footer-section h3 {
+      font-size: 16px;
+    }
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+    .social-icons {
+      text-align: center;
+    }
+    .comments textarea {
+      width: 100%;
+    }
+    .comments button {
+      width: 100%;
+    }
+    .comment-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .like-btn {
+      margin-top: 5px;
+    }
+    .copyright {
+      font-size: 12px;
+    }
+  }
+</style>
+<body>
+<footer class="footer">
+  <div class="footer-section">
+    <h3>Online Shop</h3>
+    <ul>
+      <li><a href="add1">walls decor</a></li>
+      <li><a href="add1">rooms frams</a></li>
+      <li><a href="add2">wall frameset</a></li>
+      <li><a href="add2">Ready Made Curtains</a></li>
+      <li><a href="add1">Cushions</a></li>
+      <li><a href="add2">Gifting</a></li>
+      <li><a href="4">Home Decor Accessories</a></li>
+      <li><a href="4">paint product</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Discover</h3>
+    <ul>
+      <li><a href="#">Curtains</a></li>
+      <li><a href="#">Upholstery</a></li>
+      <li><a href="#">Bed & Bath</a></li>
+      <li><a href="#">Blinds</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>New Introductions</h3>
+    <ul>
+      <li><a href="#">Viroguard by D'Decor</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Corporate</h3>
+    <ul>
+      <li><a href="about">About Us</a></li>
+      <li><a href="#">Media</a></li>
+      <li><a href="#">Follow us on instagram</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Customer Service</h3>
+    <ul>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Exchange Policy</a></li>
+      <li><a href="#">Store Locator</a></li>
+      <li><a href="#">Track My Order</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Get in Touch</h3>
+    <ul>
+      <li><a href="#">Live Chat</a></li>
+      <li><a href="#">WhatsApp Chat</a></li>
+      <li><a href="#">Leave Us Feedback</a></li>
+      <li><a href="#">Request an Appointment</a></li>
+    </ul>
+    <p>Call Us: <a href="8770128264">877012826</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Follow Us</h3>
+    <ul class="social-media">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"><i class="fab fa-instagram"></i></a>instagram
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>LinkedIn
+      </div>
+      {% comment %} <div class="social-icons">
+        <a href="https://www.whatsapp.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>whats
+      </div> {% endcomment %}
+    </ul>
+  </div>
+  <div class="footer-section comments">
+    <h3>Leave a Comment</h3>
+    <form id="commentForm">
+      <textarea id="commentInput" placeholder="Write your comment here..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <div id="commentsList">
+      <!-- Comments will be displayed here -->
+    </div>
+    <button id="viewAllBtn" style="display:none; background:#555; color:white; padding:5px 10px; border:none; cursor:pointer;">View All Comments</button>
+  </div>
+</footer>
+<footer style="background-color: white;">
+  <p style="color: lightslategray; text-align: left;">© 2024 Hastkala DecoCrafts. All rights reserved</p>
+  <p style="color: lightslategrey; text-align: right;">Presenting Hastakal</p>
+</footer>
+
+<!-- JavaScript to handle comments with Local Storage -->
+<script>
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+  document.getElementById("commentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let commentText = document.getElementById("commentInput").value;
+
+    if (commentText.trim() !== "") {
+      comments.unshift({ text: commentText, likes: 0 });
+      localStorage.setItem("comments", JSON.stringify(comments));
+      updateCommentsDisplay();
+      document.getElementById("commentInput").value = "";
+    }
+  });
+
+  function updateCommentsDisplay(showAll = false) {
+    let commentSection = document.getElementById("commentsList");
+    commentSection.innerHTML = "";
+
+    let displayedComments = showAll ? comments : comments.slice(0, 4);
+
+    displayedComments.forEach((comment, index) => {
+      let commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment-item");
+
+      let textSpan = document.createElement("span");
+      textSpan.textContent = comment.text;
+
+      let likeButton = document.createElement("button");
+      likeButton.classList.add("like-btn");
+      likeButton.innerHTML = `❤️ ${comment.likes}`;
+      likeButton.addEventListener("click", function() {
+        comment.likes++;
+        likeButton.innerHTML = `❤️ ${comment.likes}`;
+        localStorage.setItem("comments", JSON.stringify(comments));
+      });
+
+      commentDiv.appendChild(textSpan);
+      commentDiv.appendChild(likeButton);
+      commentSection.appendChild(commentDiv);
+    });
+
+    let viewAllBtn = document.getElementById("viewAllBtn");
+    if (comments.length > 4) {
+      viewAllBtn.style.display = "block";
+      viewAllBtn.onclick = function() {
+        updateCommentsDisplay(true);
+        viewAllBtn.style.display = "none";
+      };
+    } else {
+      viewAllBtn.style.display = "none";
+    }
+  }
+
+  updateCommentsDisplay();
+</script>
+</body>
+

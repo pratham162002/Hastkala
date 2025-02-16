@@ -1,49 +1,166 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    /* Navbar Container */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        background-color: white;
-        border-bottom: 1px solid #ddd;
-    }
 
-    .navbar h1 {
-        font-size: 40px;
-        font-weight: bold;
-        color:darkslategrey;
-        padding-left: 43%;
-        
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Three Dots Menu</title>
+    <style>
 
-    .navbar h1 span {
-        font-size: 14px;
-        padding-left: 12px;
-        font-weight: normal;
-        display: block;
-        color:#000;
-    }
 
-</style>
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 30px;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: gray;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            padding-right: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Underline Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: black;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Three Dots Menu */
+        .menu-dots {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-dots {
+                display: block;
+                padding-right: 30px;
+            }
+        }
+    </style>
+</head>
 <body>
-<!-- Top Banner -->
 
-<!-- Navbar -->
-<div class="navbar">
-    <!-- Logo and Heading -->
-     <h1>
-        Hastkala
-        <span>Homes Made Beautiful</span>
-    </h1> 
-    <div style="padding-right: 60px; font-size: 40px; color: #000;">
-     <a href="/home" style="color: #000;">⌂</a>
-    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Hastkala</h1>
+            <p>Handmade Decor Items</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="/cart">view card</a>
+            <a href="/about">About</a>
+            <a href="/contactnav">Contact</a>
+        </div>
+        <div class="menu-dots" onclick="toggleMenu()">&#8942;</div>
+        <div class="dropdown" id="dropdown">
+            <a href="#">Home</a>
+          
+            <a href="about">About</a>
+            <a href="contactnav">Contact</a>
+        </div>
+    </nav>
 
-    </div>
-</div>
+    <script>
+        function toggleMenu() {
+            var dropdown = document.getElementById("dropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdown");
+            var menuDots = document.querySelector(".menu-dots");
+
+            if (!menuDots.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+
 </body>
 
 

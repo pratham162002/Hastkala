@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   /* Navbar Container */
@@ -25,7 +26,10 @@
       display: block;
       color:#000;
   }
-
+  .navbar a{
+    font-size: 200%;
+    padding-right: 50px;
+  }
 
 
 
@@ -41,6 +45,7 @@
       Hastkala
       <span>Homes Made Beautiful</span>
   </h1> 
+  <a href="/home">⌂</a>
 
   </div>
 </div>
@@ -193,9 +198,9 @@
           <div class="login-wrap py-5">
             <!-- <div class="img d-flex align-items-center justify-content-center" style="background-image: url(../static/images/bg.jpg);"></div> -->
             <h3 class="text-center mb-0">Create new account!</h3>
-            <p>already have an account! <a href="login">login</a>
-            </p>
+          
            <!--  <p class="text-center">Sign Up by entering the information below</p> -->
+          
             <form action="signsave" class="login-form" method="post">
               {% csrf_token %}
               <div class="form-group">
@@ -221,6 +226,8 @@
               
               <div class="form-group">
                 <button type="submit" class="btn form-control btn-primary rounded submit px-3">SignUp</button>
+            <p>already have an account! <a href="login">login</a></p>
+            
               </div>
               
               <div class="form-group">

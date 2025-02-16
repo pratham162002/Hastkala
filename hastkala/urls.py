@@ -15,15 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 
 
 from django.conf.urls.static import static
 from webapp import views as v1
-
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -73,7 +70,7 @@ urlpatterns = [
 
     # ==================================================merchant_payment_page
     
-     path('merchant-payment/', v1.merchant_payment_page ),
+    
  
     path('generate-qr/<int:product_id>/', v1.generate_qr_code, name='generate_qr'),
     
@@ -84,6 +81,10 @@ urlpatterns = [
     
      path("submit-comment/", v1.submit_comment, name="submit_comment"),
     path("like-comment/<int:comment_id>/", v1.like_comment, name="like_comment"),
+    
+       path('accounts/', include('django.contrib.auth.urls')),
 
+    
+    
    
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

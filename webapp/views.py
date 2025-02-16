@@ -63,6 +63,7 @@ def web6 (req):
     return render (req,'addtocast.html')
 
 def web7(req):
+    
     return render(req,'login.html')
 
 def web8(req):
@@ -249,33 +250,6 @@ def payments(request):
     
 # ----------------------------------------------------------------------------------cast
 
-# def cart_view(request):
-#     # Get cart data from the session
-#     cart = request.session.get('cart', [])
-#     for item in cart:
-#         item['total_price'] = item['price'] * item['quantity']
-
-#     total_price = sum(item['total_price'] for item in cart)
-
-#     # Handle coupon code
-#     discount = 0
-#     coupon_code = request.POST.get('coupon_code', '').strip()
-#     if coupon_code == "newhastkala":
-#         discount = total_price * 0.5  # 50% discount
-#         request.session['discount'] = discount  # Save discount to session
-#         request.session['coupon_code'] = coupon_code  # Save coupon code for reference
-#         total_price -= discount
-#     else:
-#         request.session['discount'] = 0  # No discount
-#         request.session['coupon_code'] = ''  # Reset coupon code
-
-#     request.session.modified = True  # Mark session as modified
-#     return render(request, 'cart.html', {
-#         'cart': cart,
-#         'total_price': total_price,
-#         'discount': discount,
-#         'coupon_applied': coupon_code == "newhastkala"
-#     })
 
 
 
@@ -320,8 +294,7 @@ def home_view(request):
 
 
 # ---------------------------------------------------------------------
-#
-@login_required  # Ensure the user is logged in before accessing the payment page
+  # Ensure the user is logged in before accessing the payment page
 def payment_page(request):
     # Fetch cart items and discount from the session
     
@@ -397,7 +370,7 @@ def payment_buynow(request, product_id):
 
 from decimal import Decimal
 
-@login_required
+
 def payment_page_buynow(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     gst_rate = Decimal('0.13')  # GST rate (13%)
@@ -419,35 +392,6 @@ def payment_page_buynow(request, product_id):
 # ====================================================================
 #                                        merchant_payment_page
 
-@login_required
-def merchant_payment_page(request):
-    if request.method == 'POST':
-        reference_id = request.POST.get('reference_id')
-        screenshot = request.FILES.get('screenshot')
-
-        # Save payment details to the database
-        payment = Payment.objects.create(
-            user=request.user,
-            reference_id=reference_id,
-            amount=total_amount,  # Ensure you pass the total amount from the context
-        )
-        
-        if screenshot:
-            fs = FileSystemStorage()
-            filename = fs.save(screenshot.name, screenshot)
-            payment.screenshot = fs.url(filename)
-            payment.save()
-
-        return render(request, 'payment_success.html', {'payment': payment})
-
-    # Default QR code and UPI ID rendering
-    merchant_upi_id = "merchant-upi-id@bank"
-    merchant_qr_code_path = "/static/images/scanner.png"
-    context = {
-        'merchant_upi_id': merchant_upi_id,
-        'merchant_qr_code_path': merchant_qr_code_path,
-    }
-    return render(request, 'merchant_pay_page.html', context)
 # =====================save coustermer details==========================
 
 # ==========================
@@ -662,3 +606,6 @@ def like_comment(request, comment_id):
     comment.likes += 1
     comment.save()
     return JsonResponse({"likes": comment.likes})
+
+
+

@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-onjr=!whcblebkusr#bkwg71362ny3r&@@lmw!cb55)1835)=y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hastkala.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hastkala.onrender.com', 'localhost', '127.0.0.1','192.168.252.178']
+
+
 
 
 
@@ -131,3 +133,6 @@ UPI_ID = "8770128264@ybl"  # Your UPI ID
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/login/'
+

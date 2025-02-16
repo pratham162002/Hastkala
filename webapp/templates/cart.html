@@ -1,56 +1,112 @@
-<style>
-    /* Navbar Container */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        background-color: white;
-        border-bottom: 1px solid #ddd;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .navbar h1 {
-        font-size: 40px;
-        font-weight: bold;
-        color:darkslategrey;
-        padding-left: 43%;
-        
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hastkala</title>
+    <style>
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+        }
 
-    .navbar h1 span {
-        font-size: 14px;
-        padding-left: 12px;
-        font-weight: normal;
-        display: block;
-        color:#000;
-    }
+        .navbar h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: darkslategrey;
+            padding-left: 43%;
+        }
 
+        .navbar h1 span {
+            font-size: 14px;
+            padding-left: 12px;
+            font-weight: normal;
+            display: block;
+            color: #000;
+        }
 
-  
+        .top-banner {
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+        }
 
-   
-</style>
+        .navbar .home-icon {
+            padding-right: 60px;
+            font-size: 40px;
+            color: #000;
+        }
+
+        .navbar .home-icon a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center;
+                padding: 10px;
+            }
+
+            .navbar h1 {
+                font-size: 30px; /* Smaller font size for mobile */
+                padding-left: 0; /* Remove left padding */
+                text-align: center; /* Center the heading */
+            }
+
+            .navbar h1 span {
+                font-size: 12px; /* Smaller font size for mobile */
+                padding-left: 0; /* Remove left padding */
+            }
+
+            .navbar .home-icon {
+                padding-right: 0; /* Remove right padding */
+                font-size: 30px; /* Smaller icon size for mobile */
+                margin-top: 10px; /* Add spacing between heading and icon */
+            }
+
+            .top-banner {
+                font-size: 14px; /* Smaller font size for mobile */
+                padding: 10px; /* Reduce padding for mobile */
+            }
+        }
+    </style>
+</head>
 <body>
-<!-- Top Banner -->
-
-<!-- Navbar -->
-<div class="navbar">
-    <!-- Logo and Heading -->
-     <h1>
-        Hastkala
-        <span>Homes Made Beautiful</span>
-    </h1> 
-    <div style="padding-right: 60px; font-size: 40px; color: #000;">
-     <a href="/home" style="color: #000;">⌂</a>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Make Homes Beautiful with Hastkala | Get 50% OFF, code: 'newhastkala'
     </div>
 
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- Logo and Heading -->
+        <h1>
+            Hastkala
+            <span>Homes Made Beautiful</span>
+        </h1>
+
+        <!-- Home Icon -->
+        <div class="home-icon">
+            <a href="/home">⌂</a>
+        </div>
     </div>
-</div>
-</body> 
+</body>
+</html>
 
 {% comment %} -------------------------------------------------------------------------------------------------------- {% endcomment %}
 
-
+{% comment %} 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -222,7 +278,7 @@
                                     <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid_product-image">
                                     {% comment %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-fluid product-image">
                                     <img src="{{ item.image }}" alt="{{ item.name }}" style="width: 50px; height: 50px;"> {% endcomment %}
-                                </div>
+                                {% comment %} </div>
                               
                                   <div class="text-productname">{{ item.name }}</div>
                                 </td>
@@ -249,13 +305,13 @@
                         </tbody>
                        
                     </table>
-                    <div class="continue" style="padding-top: 50px;">
+                    <div class="continue" style="padding-top: 50px;"> {% endcomment %}
                        
                         {% comment %} <button href="{% url 'home' %}" class="continue_button">Continue shoping</button>
                      
                         <button href="" class="clear_button" >clear cart</button> {% endcomment %}
-                        <a href="/home" class="continue_button">Continue shoping</a>
-                        {% comment %} <a href="" class="clear_button">clear cart</a> {% endcomment %}
+                        {% comment %} <a href="/home" class="continue_button">Continue shoping</a> {% endcomment %}
+                        {% comment %} <a href="" class="clear_button">clear cart</a>
 
 
                     </div>
@@ -300,170 +356,629 @@
                              
                             {% comment %} <a href="{% url 'payment_page' product_id=product.id %}" class="payment_button">Proceed to Payment</a> {% endcomment %}
 
-                        </div>
+                        {% comment %} </div>
                     </form>
-                    
+                   
                 </div>
             </div>
             {% else %}
             <p style="text-align: center;">Your cart is empty!</p>
             <p style="text-align: center;">click here to <a href="/home" style="color:#555; font-size: 25px;" >Shopping</a></p>
-            <div style="text-align: center;">
+            <div style="text-align: center;"> {% endcomment %}
             {% comment %} <a href="{% url 'product_list' %}" class="btn">Continue Shopping</a> {% endcomment %}
-        </div>
+        {% comment %} </div>
         {% endif %}
-</body>
+</body> {% endcomment %}
 
 
-{% comment %} -------------------------------------------footer-------------------------------------------------------- {% endcomment %}
-<footer class="footer">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
     <style>
+        /* General Styles */
+        .container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+        }
 
-      .footer {
-        padding-top: 10px;
-        background-color: #b1a084; /* Matching color */
-        color: #fff;
-        padding: 40px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-family: Arial, sans-serif;
-      }
-      .footer-section {
-        flex: 1 1 200px;
-        margin: 10px;
-      }
-      .footer-section h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-      }
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-      }
-      .footer-section ul li {
-        margin: 5px 0;
-      }
-      .footer-section ul li a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .footer-section ul li a:hover {
-        text-decoration: underline;
-      }
-      .footer-section .social-media img {
-        width: 24px;
-        margin: 5px;
-      }
-      .newsletter input[type="email"] {
-        padding: 10px;
-        width: calc(100% - 90px);
-        margin-right: 10px;
-      }
-      .newsletter button {
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-      }
-      .newsletter button:hover {
-        background-color: #555;
-      }
-      .copyright {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 14px;
-      }
-      
+        .cart-items {
+            flex: 3;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .cart-summary {
+            flex: 1;
+            background-color: rgba(244, 227, 200, 0.67);
+            padding: 30px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #444;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .total {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .Shopping_Cart {
+            padding-left: 23px;
+        }
+
+        .total {
+            font-size: 40px;
+        }
+
+        .listrow {
+            font-size: 20px;
+        }
+
+        .grandtotal {
+            font-size: 19px;
+        }
+
+        .cupan {
+            padding: 17px 50px;
+            padding-top: 20px;
+            gap: 0px;
+        }
+
+        .payment_button {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 100px;
+            cursor: pointer;
+        }
+
+        .payment_button:hover, .applybutton:hover {
+            transition: background-color 0.3s ease;
+            background-color: #b1a084;
+            color: #000;
+        }
+
+        .applybutton {
+            background-color: #000;
+            color: #fff;
+            padding: 18px 13px;
+            cursor: pointer;
+        }
+
+        .continue_button {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 100px;
+            cursor: pointer;
+        }
+
+        .clear_button {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 100px;
+            cursor: pointer;
+        }
+
+        .clear_button:hover, .continue_button:hover {
+            transition: background-color 0.3s ease;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .btn_remove {
+            color: #000;
+            transition: background-color 0.3s ease;
+            background: transparent;
+            border: transparent;
+            font-weight: 100px;
+            font-size: 25px;
+            padding-top: 20px;
+            cursor: pointer;
+        }
+
+        .img-fluid_product-image {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+
+        .text-productname {
+            padding-left: px;
+            color: #b1a084;
+            text-shadow: #444;
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack cart items and summary vertically */
+            }
+
+            .cart-items, .cart-summary {
+                width: 100%; /* Full width for mobile */
+                padding: 15px; /* Reduce padding for mobile */
+            }
+
+            .Shopping_Cart {
+                padding-left: 0; /* Remove left padding for mobile */
+                text-align: center; /* Center align heading */
+            }
+
+            .listrow {
+                font-size: 10px; /* Smaller font size for mobile */
+            }
+
+            .total {
+                font-size: 30px; /* Smaller font size for mobile */
+            }
+
+            .grandtotal {
+                font-size: 16px; /* Smaller font size for mobile */
+            }
+
+            .cupan {
+                padding: 10px; /* Reduce padding for mobile */
+            }
+
+            .payment_button, .continue_button, .clear_button {
+                padding: 10px 20px; /* Smaller padding for mobile */
+                width: 100%; /* Full width for buttons on mobile */
+                margin-bottom: 10px; /* Add spacing between buttons */
+            }
+
+            .applybutton {
+                padding: 10px; /* Smaller padding for mobile */
+                width: 100%; /* Full width for apply button on mobile */
+            }
+
+            .btn_remove {
+                font-size: 20px; /* Smaller font size for mobile */
+            }
+
+            .img-fluid_product-image {
+                width: 80px; /* Smaller image size for mobile */
+                height: 80px;
+            }
+
+            .text-productname {
+                font-size: 20px; /* Smaller font size for mobile */
+            }
+        }
     </style>
-    <div class="footer-section">
-        <h3>Online Shop</h3>
-        <ul>
-          <li><a href="#">walls decor</a></li>
-          <li><a href="#">rooms frams</a></li>
-          <li><a href="#">wall frameset</a></li>
-          <li><a href="#">Ready Made Curtains</a></li>
-          <li><a href="#">Cushions</a></li>
-          <li><a href="#">Gifting</a></li>
-          <li><a href="#">Home Decor Accessories</a></li>
-          <li><a href="#">paint product</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Discover</h3>
-        <ul>
-          <li><a href="#">Curtains</a></li>
-          <li><a href="#">Upholstery</a></li>
-          <li><a href="#">Bed & Bath</a></li>
-          <li><a href="#">Blinds</a></li>
-      
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>New Introductions</h3>
-        <ul>
-          <li><a href="#">Viroguard by D'Decor</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Corporate</h3>
-        <ul>
-          <li><a href="#">About Us</a></li>
-      
-          <li><a href="#">Store Locator</a></li>
-          <li><a href="#">Media</a></li>
-          <li><a href="#">Legal Policy</a></li>
-          <li><a href="#">Careers</a></li>
-      
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Customer Service</h3>
-        <ul>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Exchange Policy</a></li>
-          <li><a href="#">Store Locator</a></li>
-          <li><a href="#">Track My Order</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-      
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Get in Touch</h3>
-        <ul>
-          <li><a href="#">Live Chat</a></li>
-          <li><a href="#">WhatsApp Chat</a></li>
-          <li><a href="#">Leave Us Feedback</a></li>
-          <li><a href="#">Request an Appointment</a></li>
-        </ul>
-        <p>Call Us: <a href="8770128264">877012826</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Follow Us</h3>
-        <ul class="social-media">
-          <li><a href="https://www.facebook.com"><img src="facebook-icon.png" alt="Facebook"></a></li>
-          <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
-          <li><a href="#"><img src="pinterest-icon.png" alt="Pinterest"></a></li>
-          <li><a href="#"><img src="youtube-icon.png" alt="YouTube"></a></li>
-          <li><a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a></li>
-          
-        </ul>
-      </div>
-      <div class="footer-section newsletter">
-        <h3>Subscribe to Our Latest Emails</h3>
-        <form action="#" method="post">
-          <input type="email" placeholder="Enter your email address">
-          <button type="submit">Join</button>
-        </form>
+</head>
+<body>
+    <h1 class="Shopping_Cart">Shopping Cart</h1>
+    {% if cart %}
+    <div class="container">
+        <div class="cart-items">
+            <table>
+                <thead>
+                    <tr class="listrow">
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        {% comment %} <th>Actions</th> {% endcomment %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                    <tr>
+                        <td>
+                            <div class="col-md-6 text-center">
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid_product-image">
+                            </div>
+                            <div class="text-productname">{{ item.name }}</div>
+                        </td>
+                        <td>₹{{ item.price }}</td>
+                        <td>
+                            <form method="post" action="{% url 'update_cart_quantity' item.id %}">
+                                {% csrf_token %}
+                                <div class="quantity-controls">
+                                    <button type="submit" name="action" value="decrease" class="btn">-</button>
+                                    <span>{{ item.quantity }}</span>
+                                    <button type="submit" name="action" value="increase" class="btn">+</button>
+                                </div>
+                            </form>
+                        </td>
+                        <td>₹{{ item.total_price }}</td>
+                        <td>
+                            <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn_remove">X</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="continue" style="padding-top: 50px;">
+                <a href="/home" class="continue_button">Continue Shopping</a>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h2 class="total">Total</h2>
+            {% for item in cart %}
+            <div class="summary-item">
+                <span>{{ item.name }}</span>
+                <span>₹{{ item.total_price }}</span>
+            </div>
+            {% endfor %}
+            <div class="summary-item">
+                <span class="grandtotal">Subtotal</span>
+                <span class="grandtotal"> ₹{{ total_price }}</span>
+            </div>
+            <div class="summary-item total">
+                <span class="grandtotal">Grand Total</span>
+                <span class="grandtotal">₹{{ total_price }}</span>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input class="cupan" type="text" name="coupon_code" placeholder="Enter Coupon Code" required>
+                <button class="applybutton" type="submit">Apply</button>
+            </form>
+
+            {% if coupon_applied %}
+            <p style="color: green;">Coupon Applied! 50% Discount Granted.</p>
+            <p>Discount: ₹{{ discount }}</p>
+            {% endif %}
+
+            <div class="payment" style="padding-top: 50px;">
+                <button class="payment_button"><a href="{% url 'payment_page' %}" style="color: #ccc;">Proceed to Payment</a></button>
+            </div>
+        </div>
     </div>
+    {% else %}
+    <p style="text-align: center;">Your cart is empty!</p>
+    <p style="text-align: center;">Click here to <a href="/home" style="color: #555; font-size: 25px;">Shopping</a></p>
+    {% endif %}
+</body>
+</html>
+{% comment %} -------------------------------------------footer-------------------------------------------------------- {% endcomment %}
+<style>
+  /* General Footer Styles */
+  .footer {
+    padding-top: 10px;
+    background-color: rgb(130, 130, 129);
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+  }
+  .footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin: 5px 0;
+  }
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+  .footer-section .social-media img {
+    width: 24px;
+    margin: 5px;
+  }
+  .newsletter input[type="email"] {
+    padding: 10px;
+    width: calc(100% - 90px);
+    margin-right: 10px;
+  }
+  .newsletter button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .newsletter button:hover {
+    background-color: #555;
+  }
+  .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .social-icons {
+    text-align: left;
+    padding: 20px;
+  }
+  .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  .social-icons a:hover {
+    color: #007bff;
+  }
+  .comments textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .comments button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .comments button:hover {
+    background-color: #555;
+  }
+  .comment-item {
+    background: white;
+    color: black;
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .like-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-section {
+      flex: 1 1 100%;
+      margin: 10px 0;
+    }
+    .footer-section h3 {
+      font-size: 16px;
+    }
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+    .social-icons {
+      text-align: center;
+    }
+    .comments textarea {
+      width: 100%;
+    }
+    .comments button {
+      width: 100%;
+    }
+    .comment-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .like-btn {
+      margin-top: 5px;
+    }
+    .copyright {
+      font-size: 12px;
+    }
+  }
+</style>
+<body>
+<footer class="footer">
+  <div class="footer-section">
+    <h3>Online Shop</h3>
+    <ul>
+      <li><a href="add1">walls decor</a></li>
+      <li><a href="add1">rooms frams</a></li>
+      <li><a href="add2">wall frameset</a></li>
+      <li><a href="add2">Ready Made Curtains</a></li>
+      <li><a href="add1">Cushions</a></li>
+      <li><a href="add2">Gifting</a></li>
+      <li><a href="4">Home Decor Accessories</a></li>
+      <li><a href="4">paint product</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Discover</h3>
+    <ul>
+      <li><a href="#">Curtains</a></li>
+      <li><a href="#">Upholstery</a></li>
+      <li><a href="#">Bed & Bath</a></li>
+      <li><a href="#">Blinds</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>New Introductions</h3>
+    <ul>
+      <li><a href="#">Viroguard by D'Decor</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Corporate</h3>
+    <ul>
+      <li><a href="about">About Us</a></li>
+      <li><a href="#">Media</a></li>
+      <li><a href="#">Follow us on instagram</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Customer Service</h3>
+    <ul>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Exchange Policy</a></li>
+      <li><a href="#">Store Locator</a></li>
+      <li><a href="#">Track My Order</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>Get in Touch</h3>
+    <ul>
+      <li><a href="#">Live Chat</a></li>
+      <li><a href="#">WhatsApp Chat</a></li>
+      <li><a href="#">Leave Us Feedback</a></li>
+      <li><a href="#">Request an Appointment</a></li>
+    </ul>
+    <p>Call Us: <a href="8770128264">877012826</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Follow Us</h3>
+    <ul class="social-media">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>facebook
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sahu_pratham_?igsh=MXBlN2t2eWMxdXZwcA==" target="_blank"><i class="fab fa-instagram"></i></a>instagram
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>LinkedIn
+      </div>
+      {% comment %} <div class="social-icons">
+        <a href="https://www.whatsapp.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>whats
+      </div> {% endcomment %}
+    </ul>
+  </div>
+  <div class="footer-section comments">
+    <h3>Leave a Comment</h3>
+    <form id="commentForm">
+      <textarea id="commentInput" placeholder="Write your comment here..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <div id="commentsList">
+      <!-- Comments will be displayed here -->
+    </div>
+    <button id="viewAllBtn" style="display:none; background:#555; color:white; padding:5px 10px; border:none; cursor:pointer;">View All Comments</button>
+  </div>
 </footer>
 <footer style="background-color: white;">
-  <p style="color: lightslategray;text-align: left; " > © 2024  Hastkala DecoCrafts. All rights reserved</p>
-  <p style="color:lightslategrey; text-align: right; " > Prasenting Hastakal </P>
+  <p style="color: lightslategray; text-align: left;">© 2024 Hastkala DecoCrafts. All rights reserved</p>
+  <p style="color: lightslategrey; text-align: right;">Presenting Hastakal</p>
+</footer>
 
-</footer> 
+<!-- JavaScript to handle comments with Local Storage -->
+<script>
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+  document.getElementById("commentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let commentText = document.getElementById("commentInput").value;
+
+    if (commentText.trim() !== "") {
+      comments.unshift({ text: commentText, likes: 0 });
+      localStorage.setItem("comments", JSON.stringify(comments));
+      updateCommentsDisplay();
+      document.getElementById("commentInput").value = "";
+    }
+  });
+
+  function updateCommentsDisplay(showAll = false) {
+    let commentSection = document.getElementById("commentsList");
+    commentSection.innerHTML = "";
+
+    let displayedComments = showAll ? comments : comments.slice(0, 4);
+
+    displayedComments.forEach((comment, index) => {
+      let commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment-item");
+
+      let textSpan = document.createElement("span");
+      textSpan.textContent = comment.text;
+
+      let likeButton = document.createElement("button");
+      likeButton.classList.add("like-btn");
+      likeButton.innerHTML = `❤️ ${comment.likes}`;
+      likeButton.addEventListener("click", function() {
+        comment.likes++;
+        likeButton.innerHTML = `❤️ ${comment.likes}`;
+        localStorage.setItem("comments", JSON.stringify(comments));
+      });
+
+      commentDiv.appendChild(textSpan);
+      commentDiv.appendChild(likeButton);
+      commentSection.appendChild(commentDiv);
+    });
+
+    let viewAllBtn = document.getElementById("viewAllBtn");
+    if (comments.length > 4) {
+      viewAllBtn.style.display = "block";
+      viewAllBtn.onclick = function() {
+        updateCommentsDisplay(true);
+        viewAllBtn.style.display = "none";
+      };
+    } else {
+      viewAllBtn.style.display = "none";
+    }
+  }
+
+  updateCommentsDisplay();
+</script>
+</body>
 
 </html>
 
