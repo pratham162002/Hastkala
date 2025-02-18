@@ -79,8 +79,15 @@ urlpatterns = [
     path("save-transaction/", v1.save_transaction, name="save_transaction"),
     
     
-     path("submit-comment/", v1.submit_comment, name="submit_comment"),
-    path("like-comment/<int:comment_id>/", v1.like_comment, name="like_comment"),
+    #  path("submit-comment/", v1.submit_comment, name="submit_comment"),
+    # path("like-comment/<int:comment_id>/", v1.like_comment, name="like_comment"),
+    path('submit_query/', v1.submit_query, name="submit_query"),
+    #   path('comments/', v1.comment_view, name='comment_view'),
+    
+    path('subscribe/', v1.subscribe, name="subscribe"),
+    
+    
+    
     
        path('accounts/', include('django.contrib.auth.urls')),
 

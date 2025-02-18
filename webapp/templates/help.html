@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Three Dots Menu</title>
+    <style>
+       
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: gray;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Underline Effect */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: black;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Three Dots Menu */
+        .menu-dots {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-dots {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Hastkala</h1>
+            <p>Handmade Decor Items</p>
+        </div>
+        <div class="nav-links">
+            <a href="home" class="active">Home</a>
+            <a href="/cart">view card</a>
+            <a href="/about">About</a>
+            <a href="/contactnav">Contact</a>
+            <li>Welcome, {{request.session.uname}}</li>
+
+
+        </div>
+        <div class="menu-dots" onclick="toggleMenu()">&#8942;</div>
+        <div class="dropdown" id="dropdown">
+            <a href="#">Home</a>
+          
+            <a href="about">About</a>
+            <a href="contactnav">Contact</a>
+            
+
+            
+        </div>
+    </nav>
+
+
+    {% comment %} <nav>
+      <ul>
+
+          
+          {% if user.is_authenticated %}
+              <li>Welcome, {{request.session.uname}}</li>
+              
+           
+          {% else %}
+              <li>Welcome, New User</li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+      </ul>
+  </nav> {% endcomment %}
+  
+    <script>
+        function toggleMenu() {
+            var dropdown = document.getElementById("dropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdown");
+            var menuDots = document.querySelector(".menu-dots");
+
+            if (!menuDots.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Hastkala</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+        .faq, .contact, .query-form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .faq p, .contact p {
+            font-size: 14px;
+            color: #555;
+        }
+        .query-form input, .query-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .query-form button {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .query-form button:hover {
+            background: #218838;
+        }
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .help-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Help & Support</h2>
+        
+        <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+            <p><strong>How can I Help You</strong><br> you  can massege me !.</p>
+            
+        </div>
+        
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>📞 Call us: +91 8770128264</p>
+            <p>📧 Email: sahuji8050@gmail.com</p>
+            <p>💬 <a href="https://wa.me/918770128264" target="_blank">Chat on WhatsApp</a></p>
+        </div>
+
+        <div class="query-form">
+            <h3>Submit a Query</h3>
+            <form action="{% url 'submit_query' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Query" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <a href="#" class="help-btn">❓ Help</a>
+</body>
+</html>
+

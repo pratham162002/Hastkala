@@ -590,22 +590,51 @@ def save_transaction(request):
     return JsonResponse({"success": False, "message": "Invalid request"})
 
 
+# -------------------- footer comment box 
 
-from .models import Comment
+# from .models import Comment
 
-def submit_comment(request):
+# def comment_view(request):
+#     if request.method == "POST":
+#         name = request.POST.get('name')  # Get customer's name
+#         message = request.POST.get('message')  # Get customer's message
+        
+#         if name and message:  # Ensure both fields are filled
+#             Comment.objects.create(name=name, message=message)  # Save to database
+#             return redirect('comment_view')  # Refresh the page
+
+#     comments = Comment.objects.all().order_by('-created_at')  # Fetch all comments
+#     return render(request, 'w.html', {'comments': comments})
+# ---------------------------------------------------------
+#                               help page
+
+from .models import CustomerQuery
+
+
+def submit_query(request):
     if request.method == "POST":
-        comment_text = request.POST.get("comment")
-        if comment_text:
-            comment = Comment.objects.create(text=comment_text)
-            return JsonResponse({"id": comment.id, "text": comment.text, "likes": comment.likes}, status=201)
-    return JsonResponse({"error": "Invalid request"}, status=400)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
 
-def like_comment(request, comment_id):
-    comment = Comment.objects.get(id=comment_id)
-    comment.likes += 1
-    comment.save()
-    return JsonResponse({"likes": comment.likes})
+        CustomerQuery.objects.create(name=name, email=email, message=message)
 
 
+        return redirect('submit_query')  # ✅ Redirect to Help Page
 
+    return render(request, "help.html")
+
+
+
+from .models import Subscriber
+
+def subscribe(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        if email:
+            if not Subscriber.objects.filter(email=email).exists():  # Avoid duplicates
+                Subscriber.objects.create(email=email)
+                return JsonResponse({"status": "success", "message": "Subscribed successfully!"})
+            else:
+                return JsonResponse({"status": "error", "message": "Email already subscribed."})
+    return JsonResponse({"status": "error", "message": "Invalid request."})

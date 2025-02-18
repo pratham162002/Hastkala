@@ -76,3 +76,28 @@ class ContactMessageAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(ContactMessage, ContactMessageAdmin)
+
+
+from .models import CustomerQuery
+
+@admin.register(CustomerQuery)
+class CustomerQueryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'created_at','message')
+    search_fields = ('name', 'email')
+    
+    
+# from .models import Comment
+
+# class CommentAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'message', 'likes', 'created_at')  # Show these fields in admin panel
+
+# admin.site.register(Comment, CommentAdmin)
+
+
+from .models import Subscriber
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email', 'subscribed_at')  # Show in admin panel
+    search_fields = ('email',)  # Search feature
+

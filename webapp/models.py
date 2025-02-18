@@ -166,10 +166,33 @@ class ContactMessage(models.Model):
         return f"Message from {self.name}"
 
 
-class Comment(models.Model):
-    text = models.TextField()
-    likes = models.PositiveIntegerField(default=0)
+
+# class Comment(models.Model):
+#     name = models.CharField(max_length=100)  # Customer's name
+#     message = models.TextField()  # Customer's message
+#     likes = models.IntegerField(default=0)  # Like count
+#     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp
+
+#     def __str__(self):
+#         return f"{self.name}: {self.message[:50]}"
+
+    
+    
+class CustomerQuery(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.text[:50]  # Show first 50 chars
+        return f"{self.name} - {self.email}"
+    
+    
+    
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)  # Stores emails uniquely
+    subscribed_at = models.DateTimeField(auto_now_add=True)  # Timestamp
+
+    def __str__(self):
+        return self.email

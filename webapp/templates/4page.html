@@ -474,7 +474,7 @@
         .overlay-text {
             position: absolute;
             top: 35%;
-            left: 26%;
+            left: 63%;
             transform: translate(-50%, -50%);
             color: white;
             font-size: 90px;
@@ -488,8 +488,8 @@
 
         .overlay-text2 {
             position: absolute;
-            top: 45%;
-            left: 26%;
+            top: 48%;
+            left: 63%;
             transform: translate(-50%, -50%);
             color: white;
             font-size: 24px;
@@ -503,11 +503,11 @@
         .overlay-button {
             position: absolute;
             top: 350px;
-            left: 25%;
+            left: 63%;
             transform: translate(-50%, 0);
-            background-color: rgba(30, 30, 34, 0);
+            background-color: rgba(25, 25, 44, 0);
             color: white;
-            border: none;
+            border:8px;
             padding: 10px 30px;
             font-size: 16px;
             border-radius: 100px;
@@ -535,12 +535,12 @@
 
             .overlay-text2 {
                 font-size: 18px; /* Reduce font size for mobile */
-                top: 40%; /* Adjust position for mobile */
+                top: 50%; /* Adjust position for mobile */
                 left: 50%; /* Center text horizontally */
             }
 
             .overlay-button {
-                top: 300px; /* Adjust button position for mobile */
+                top:60%; /* Adjust button position for mobile */
                 left: 50%; /* Center button horizontally */
                 font-size: 14px; /* Reduce font size for mobile */
                 padding: 8px 20px; /* Adjust padding for mobile */
@@ -551,10 +551,10 @@
 <body class="phototext">
   <div class="phototext-container">
     <a href="add1">
-      <img src="{% static 'images/dp.jpg' %}" alt="Decor">
-      {% comment %} <div class="overlay-text">DECOR</div>
-      <div class="overlay-text2">your home with us</div> {% endcomment %}
-      {% comment %} <button class="overlay-button">Checkout</button> {% endcomment %}
+      <img src="{% static 'images/pngtre.jpg' %}" alt="Decor">
+       <div class="overlay-text">Gift's</div>
+      <div class="overlay-text2">For Your Friends</div> 
+     <button class="overlay-button">Checkout</button> 
     </a>
   </div>
 </body>
